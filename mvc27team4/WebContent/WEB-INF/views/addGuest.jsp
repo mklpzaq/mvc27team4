@@ -12,7 +12,9 @@
 		$("#insertGuestButton").click(function(){
 			
 			if( $("#guestId").val().length < 2 ){
-				
+				$("#helper").text("2자 이상 입력해주세요.");
+			}else if( $("guestPw").val().isNan() ){
+				$("#helper").text("숫자를 입력해주세요");
 			}
 			
 		});
@@ -26,15 +28,19 @@
 			<label for="guestId">guest_id : </label>
 			<input class="form-control" type="text" id="guestId" placeholder="ID">
 		</div>
+		<br/>
 		<div class="form-group">
 			<label for="guestPw">guest_pw : </label>
 			<input class="form-control" type="password" id="guestPw" placeholder="PASSWORD">
 		</div>
+		<br/>
 		<div class="form-group">
 			<label for="guestPwCheck">guest_pw 확인 : </label>
 			<input class="form-control" type="password" id="guestPwCheck" placeholder="PASSWORD2">
 		</div>
-			<button id = "insertGuestButton" type="button" class="btn btn-default">게스트 추가</button>
+		<br>
+		<button id = "insertGuestButton" type="button" class="btn btn-default">게스트 추가</button>
+		<span id = "helper"></span>
 	</form>
 		
 
