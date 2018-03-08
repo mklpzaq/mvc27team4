@@ -28,7 +28,6 @@
 	</script>
 </head>
 <body>
-	<h1>addTeacher</h1>
 	<form  method = "get" class="form-horizontal" id = "insertTeacherForm" action = "<%= request.getContextPath() %>/addTeacher.jjdev">
 		<h1>addTeacher</h1>
 		<div class="form-group">
