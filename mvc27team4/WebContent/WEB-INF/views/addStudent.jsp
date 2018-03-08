@@ -7,6 +7,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>addStudent</title>
 	<link href="<%=request.getContextPath() %>/bootstrap_minyoung/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		body{padding:0; margin: 0; background-color: #D4F4FA !important;}
+		h1{text-align: center;}
+		.panel{margin-bottom: 0 !important;}
+		.footer{text-align: center; padding:15px}
+	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
 		$(document).ready(function(){
@@ -27,12 +33,6 @@
 	</script>
 </head>
 <body>
-	<style>
-		body{padding:0; margin: 0; background-color: #D4F4FA !important;}
-		h1{text-align: center;}
-		.panel{margin-bottom: 0 !important;}
-		.footer{text-align: center; padding:15px}
-	</style>
 	<h1>addStudent</h1>
 	<div class="row">
 		<div class="col-sm-3"></div>
