@@ -28,7 +28,7 @@
 </head>
 <body>
 	<style>
-		body{padding:0; margin: 0; background-color: #18bc9c !important;}
+		body{padding:0; margin: 0; background-color: #D4F4FA !important;}
 		h1{text-align: center;}
 		.panel{margin-bottom: 0 !important;}
 		.footer{text-align: center; padding:15px}
