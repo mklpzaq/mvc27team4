@@ -3,9 +3,10 @@
 <html>
 <head>
 	<style>
-	background-color {
-		red;
-	}		
+		#employeeId {
+			background-color: white;
+			color: black;
+		}
 	</style>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>add Employee</title>
@@ -16,13 +17,15 @@
 				$("#btn").click(function(){
 					if($("#employeeId").val().length <= 3) {
 						alert("아이디를 3자 이상입력하세요!");
-						$("input").toggleClass("red");
+						$("#employeeId").css("background-color", "red");
 						$("#employeeId").focus();						
 					}else if($("#employeePw").val().length <= 3) {
 						alert("패스워드를 3자 이상입력하세요!")
+						$("#employeeId").css("background-color", "red");
 						$("#employeePw").focus();
 					}else if($("#employeePwCheck").val() !== $("#employeePw").val()) {
 						alert("패스워드를 확인하세요");
+						$("#employeeId").css("background-color", "red");
 						$("#employeePwCheck").focus();
 					}else {
 						alert("입력완료");
