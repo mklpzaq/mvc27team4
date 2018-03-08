@@ -39,20 +39,24 @@
 <body>
 	<br>
 	<br>
-	<form class="form-inline" method="post" href="<%=request.getContextPath()%>/addEmployee.jjdev" id="insertEmployee">
-		  <div class="form-group">
-		    <label for="exampleInputName2">employee_id</label>
-		    <input type="text" class="form-control" id="employeeId" placeholder="employeeId" name="employeeId">
-		  </div>
-		  <div class="form-group">
-		    <label for="exampleInputEmail2">employee_pw</label>
-		    <input type="password" class="form-control" id="employeePw" placeholder="employeePw" name="employeePw">
-		  </div>
-		   <div class="form-group">
-		    <label for="exampleInputEmail2">employee_pw확인</label>
-		    <input type="password" class="form-control" id="employeePwCheck" placeholder="employeePwCheck" name="employeePwCheck">
-		  </div>
-		  <button type="button" class="btn btn-default" id="btn">직원추가</button>
-	</form>
+	<h1 style="text-align: center;">Employee Insert</h1>
+	
+	<div class="row">		
+		<form class="form-inline" method="post" href="<%=request.getContextPath()%>/addEmployee.jjdev" id="insertEmployee">
+			  <div class="form-group" class="col-md-4">
+			    <label for="exampleInputName2">employee_id</label>
+			    <input type="text" class="form-control" id="employeeId" placeholder="employeeId" name="employeeId">
+			  </div>
+			  <div class="form-group" class="col-md-4">
+			    <label for="exampleInputEmail2">employee_pw</label>
+			    <input type="password" class="form-control" id="employeePw" placeholder="employeePw" name="employeePw">
+			  </div>
+			   <div class="form-group" class="col-md-4">
+			    <label for="exampleInputEmail2">employee_pw확인</label>
+			    <input type="password" class="form-control" id="employeePwCheck" placeholder="employeePwCheck" name="employeePwCheck">
+			  </div>
+			  <button type="button" class="btn btn-default" id="btn">직원추가</button>		  
+		</form>		
+	</div>
 </body>
 </html>
