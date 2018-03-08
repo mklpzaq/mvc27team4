@@ -28,37 +28,41 @@
 	</script>
 </head>
 <body>
-	<form  method = "get" class="form-horizontal" id = "insertTeacherForm" action = "<%= request.getContextPath() %>/addTeacher.jjdev">
-		<h1>addTeacher</h1>
-		<div class="form-group">
-			<label for="teacherId" class="col-sm-2 control-label">teacher_id : </label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" id="teacherId" placeholder="ID">
-			</div>
+	<div class = "row">
+		<div class = "col-sm-4"></div>
+		<div class = "col-sm-4">
+			<form  method = "get" class="form-horizontal" id = "insertTeacherForm" action = "<%= request.getContextPath() %>/addTeacher.jjdev">
+				<h1>addTeacher</h1>
+				<div class="form-group">
+					<label for="teacherId" class="col-sm-2 control-label">teacher_id</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="teacherId" placeholder="ID">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="teacherPw" class="col-sm-2 control-label">teacher_pw</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" id="teacherPw" placeholder="PW">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="teacherPwCheck" class="col-sm-2 control-label">teacher_pw 확인</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" id="teacherPwCheck" placeholder="PW CHECK">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="button" class="btn btn-default" id = "insertTeacherBtn">teacher 추가</button>
+					</div>
+				</div>
+				<span id = "helper"></span>
+			</form>
 		</div>
-		
-		<div class="form-group">
-			<label for="teacherPw" class="col-sm-2 control-label">teacher_pw :</label>
-			<div class="col-sm-10">
-				<input type="password" class="form-control" id="teacherPw" placeholder="PW">
-			</div>
-		</div>
-		
-		<div class="form-group">
-			<label for="teacherPwCheck" class="col-sm-2 control-label">teacher_pw 확인 : </label>
-			<div class="col-sm-10">
-				<input type="password" class="form-control" id="teacherPwCheck" placeholder="PW CHECK">
-			</div>
-		</div>
-		
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<button type="button" class="btn btn-default" id = "insertTeacherBtn">teacher 추가</button>
-			</div>
-		</div>
-		<span id = "helper"></span>
-	</form>
-	
-	
+		<div class = "col-sm-4"></div>
+	</div>
 </body>
 </html>
