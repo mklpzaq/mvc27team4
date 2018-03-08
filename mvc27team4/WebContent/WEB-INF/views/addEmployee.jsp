@@ -46,11 +46,11 @@
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleInputEmail2">employee_pw</label>
-		    <input type="email" class="form-control" id="employeePw" placeholder="employeePw" name="employeePw">
+		    <input type="password" class="form-control" id="employeePw" placeholder="employeePw" name="employeePw">
 		  </div>
 		   <div class="form-group">
 		    <label for="exampleInputEmail2">employee_pw확인</label>
-		    <input type="email" class="form-control" id="employeePwCheck" placeholder="employeePwCheck" name="employeePwCheck">
+		    <input type="password" class="form-control" id="employeePwCheck" placeholder="employeePwCheck" name="employeePwCheck">
 		  </div>
 		  <button type="button" class="btn btn-default" id="btn">직원추가</button>
 	</form>
