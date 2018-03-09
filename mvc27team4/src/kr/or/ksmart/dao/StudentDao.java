@@ -1,8 +1,10 @@
 package kr.or.ksmart.dao;
 
+import kr.or.ksmart.dto.Student;
+
 public class StudentDao {
 
-	public void studentInsert(String id, String pw) {
+	public void insertStudent(Student student) {
 		
 	}
 }
