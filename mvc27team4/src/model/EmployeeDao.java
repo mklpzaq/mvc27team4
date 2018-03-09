@@ -14,11 +14,9 @@ public class EmployeeDao {
 	ResultSet result = null;
 	
 	public ArrayList<Employee> SelectEmployee(){
-		ArrayList<Employee> list = new  ArrayList<Employee>();
-		DriverDB driverdb = new DriverDB();		
-		
+		ArrayList<Employee> list = new  ArrayList<Employee>();	
 		try {
-			conn = driverdb.driverConnection();
+			conn = DriverDB.driverConnection();
 			String sql = "SELECT employee_no as employeeNom, employee_id as employeeId, employee_pw as employeePw from employee";
 			pstmt = conn.prepareStatement(sql); 
 			result = pstmt.executeQuery();
@@ -47,11 +45,9 @@ public class EmployeeDao {
 		return list;
 	}
 		
-	public void insertEmployee(Employee employee) {		
-		DriverDB driverdb = new DriverDB();
-		
+	public void insertEmployee(Employee employee) {				
 		try {			
-			conn = driverdb.driverConnection();					
+			conn = DriverDB.driverConnection();					
 			String sql = "INSERT INTO employee (employee_id, employee_pw) values(?, ?)";			
 			
 			

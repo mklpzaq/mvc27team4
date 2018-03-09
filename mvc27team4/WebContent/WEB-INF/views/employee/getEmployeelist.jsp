@@ -32,10 +32,8 @@
 		      </thead>
 		      <tbody>
 		        <tr>
-		          <th scope="row">1</th>
-		          <td><%= employee.getEmployeeNom() %></td>
-		          <td><%= employee.getEmployeeId() %></td>
-		          <td><%= employee.getEmployeePw() %></td>
+		          <th scope="row"><%= employee.getEmployeeNom() %></th>		        
+		          <td><%= employee.getEmployeeId() %></td>		         
 		        </tr>		       
 	      </tbody>
 	    </table>
