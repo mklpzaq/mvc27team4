@@ -1,3 +1,4 @@
+// [mvc27team4] 방민영
 package controller;
 
 import java.io.IOException;
@@ -8,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/getStudentList")
+@WebServlet("/getStudentList.jjdev")
 public class GetStudentListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -18,7 +19,7 @@ public class GetStudentListController extends HttpServlet {
 		//StudentDao
 		//request에 속성 추가
 		//forward
-		request.getRequestDispatcher("/WEB-INF/views/getStudentList.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/student/getStudentList.jsp").forward(request, response);
 	}
 
 }

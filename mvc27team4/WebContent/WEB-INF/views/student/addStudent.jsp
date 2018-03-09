@@ -1,3 +1,4 @@
+<!-- [mvc27team4] 방민영 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -40,7 +41,7 @@
 			<div class="panel panel-default">
 				<div class="panel-body form-horizontal">
 				
-					<form action="<%=request.getContextPath() %>/addStudent" id="insertStudentForm" method="get">
+					<form action="<%=request.getContextPath() %>/addStudent.jjdev" id="insertStudentForm" method="post">
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="studentId">student_id</label>
 							<div class="col-sm-10">

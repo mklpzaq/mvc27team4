@@ -1,3 +1,4 @@
+// [mvc27team4] 방민영
 package controller;
 
 import java.io.IOException;
@@ -11,12 +12,12 @@ import service.Student;
 import service.StudentDao;
 
 
-@WebServlet("/addStudent")
+@WebServlet("/addStudent.jjdev")
 public class AddStudentController extends HttpServlet {
 	private StudentDao studentDao;
 	//student입력 폼요청
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("WEB-INF/views/addStudent.jsp").forward(request, response);
+		request.getRequestDispatcher("WEB-INF/views/student/addStudent.jsp").forward(request, response);
 	}
 
 	//student입력
@@ -27,10 +28,10 @@ public class AddStudentController extends HttpServlet {
 		String studentId = request.getParameter("studentId");
 		String studentPw = request.getParameter("studentPw");
 		Student student = new Student();
-		//student setter 호출
+		student.setStudentId(studentId);
+		student.setStudentPw(studentPw);
 		this.studentDao = new StudentDao();
 		studentDao.insertStudent(student);
-		response.sendRedirect("/getStudentList");
+		response.sendRedirect(request.getContextPath()+"/getStudentList.jjdev");
 	}
-
 }
