@@ -1,6 +1,6 @@
 // [mvc27team4] ¿Ã√·∏≤
 package model;
-import service.DriverDB;
+import model.DriverDB;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

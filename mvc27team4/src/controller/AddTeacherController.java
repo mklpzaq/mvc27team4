@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.Teacher;
-import service.TeacherDao;
+import model.Teacher;
+import model.TeacherDao;
 
 
 @WebServlet("/addTeacher.jjdev")
