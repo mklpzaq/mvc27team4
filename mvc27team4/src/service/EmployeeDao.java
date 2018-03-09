@@ -22,17 +22,18 @@ public class EmployeeDao {
 			String sql = "SELECT employee_no as employeeNom, employee_id as employeeId, employee_pw as employeePw from employee";
 			pstmt = conn.prepareStatement(sql); 
 			result = pstmt.executeQuery();
-		while (result.next()) {
-			Employee employee = new Employee();
-			String employeeNom = result.getString("employeeNom");
-			String employeeId = result.getString("employeeId");
-			String employeePw = result.getString("employeePw");
 			
-			employee.setEmployeeNom(employeeNom);
-			employee.setEmployeeId(employeeId);
-			employee.setEmployeePw(employeePw);
-			list.add(employee);
-		}		
+				while (result.next()) {
+				Employee employee = new Employee();
+				String employeeNom = result.getString("employeeNom");
+				String employeeId = result.getString("employeeId");
+				String employeePw = result.getString("employeePw");
+				
+				employee.setEmployeeNom(employeeNom);
+				employee.setEmployeeId(employeeId);
+				employee.setEmployeePw(employeePw);
+				list.add(employee);
+				}		
 		
 		} catch (ClassNotFoundException e) {			
 			e.printStackTrace();

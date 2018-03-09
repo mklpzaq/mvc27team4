@@ -7,13 +7,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import service.Employee;
 import service.EmployeeDao;
 
 @WebServlet("/addEmployee.jjdev")
 public class AddEmployeeController extends HttpServlet {
-	EmployeeDao employeedao;
+	private EmployeeDao employeedao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/employee/addEmployee.jsp").forward(request, response);
 	}
@@ -28,7 +27,7 @@ public class AddEmployeeController extends HttpServlet {
 			employee.setEmployeeId(employeeId);
 			employee.setEmployeePw(employeePw);
 		
-		employeedao = new EmployeeDao();
+		this.employeedao = new EmployeeDao();
 		employeedao.insertEmployee(employee);
 		response.sendRedirect(request.getContextPath() + "/GetEmployeeList.jjdev");			
 	}
