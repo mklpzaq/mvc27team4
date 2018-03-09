@@ -1,5 +1,5 @@
 /* [mvc27team4] ¹æ¹Î¿µ */
-package service;
+package model;
 
 public class Student {
 

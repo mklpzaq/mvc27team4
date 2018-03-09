@@ -1,5 +1,5 @@
 // [mvc27team4] ¿Ã√·∏≤
-package service;
+package model;
 import service.DriverDB;
 
 import java.sql.Connection;
