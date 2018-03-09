@@ -7,6 +7,9 @@
 	<title>Insert title here</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<style>
+		h1{text-align: center;}
+	</style>
 	<script>
 		$(document).ready(function(){
 			//폼 유효성 검사 후 폼을 submit
