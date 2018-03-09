@@ -1,4 +1,4 @@
-// [mvc27team4] 방민영
+/* [mvc27team4] 방민영 */
 package service;
 
 import java.sql.Connection;
@@ -14,8 +14,11 @@ public class StudentDao {
 	Student student = null;
 	String sql = null;
 	
+	
+	
+	
+	//화면에서 입력한 값을 DB에 세팅하기 위해 다음의 메소드를 사용한다.
 	public void insertStudent(Student student) {
-		
 		DriverDB driverdb = new DriverDB();
 		try {
 			connection = driverdb.driverConnection();
@@ -28,7 +31,7 @@ public class StudentDao {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				statement.close();
 				connection.close();
