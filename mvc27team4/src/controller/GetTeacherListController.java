@@ -1,3 +1,4 @@
+// [mvc27team4] 이춘림
 package controller;
 
 import java.io.IOException;
@@ -16,7 +17,7 @@ public class GetTeacherListController extends HttpServlet {
 		// GuestDao
 		// request에 속성 추가
 		// forward
-		request.getRequestDispatcher("/WEB-INF/views/getTeacherList.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/teacher/getTeacherList.jsp").forward(request, response);
 		
 	}
 

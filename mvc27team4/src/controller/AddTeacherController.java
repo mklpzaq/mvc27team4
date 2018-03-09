@@ -1,3 +1,4 @@
+// [mvc27team4] 이춘림
 package controller;
 
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class AddTeacherController extends HttpServlet {
 	/*private StudentDao studentDao;*/
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/addTeacher.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/teacher/addTeacher.jsp").forward(request, response);
 	}
 	
 	// guest입력

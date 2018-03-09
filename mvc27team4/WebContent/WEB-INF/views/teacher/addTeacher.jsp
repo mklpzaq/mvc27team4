@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- [mvc27team4] ì´ì¶˜ë¦¼ -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -9,20 +9,19 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
 		$(document).ready(function(){
-			//Æû À¯È¿¼º °Ë»ç ÈÄ ÆûÀ» submit
+			//í¼ ìœ íš¨ì„± ê²€ì‚¬ í›„ í¼ì„ submit
 			$("#insertTeacherBtn").click(function(){
 				
 				if( $("#teacherId").val().length < 2 ){
-					$("#helper").text("2ÀÚ ÀÌ»ó ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					$("#helper").text("2ì ì´ìƒ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				}else if( $("#teacherPw").val() === "" ){
-					$("#helper").text("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¿© ÁÖ½Ê½Ã¿À.");
+					$("#helper").text("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì—¬ ì£¼ì‹­ì‹œì˜¤.");
 				}else if( $("#teacherPwCheck").val() !== $("#teacherPw").val() ){
-					$("#helper").text("È®ÀÎ ºñ¹Ğ¹øÈ£¸¦ Á¤È®È÷ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					$("#helper").text("í™•ì¸ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì •í™•íˆ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				}else{
 					$("#helper").text("");
 					$("#insertTeacherForm").submit();
 				}
-				
 			});
 		});
 	</script>
@@ -48,7 +47,7 @@
 				</div>
 				
 				<div class="form-group">
-					<label for="teacherPwCheck" class="col-sm-2 control-label">teacher_pw È®ÀÎ</label>
+					<label for="teacherPwCheck" class="col-sm-2 control-label">teacher_pw í™•ì¸</label>
 					<div class="col-sm-10">
 						<input type="password" class="form-control" id="teacherPwCheck" placeholder="PW CHECK">
 					</div>
@@ -56,7 +55,7 @@
 				
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="button" class="btn btn-default" id = "insertTeacherBtn">teacher Ãß°¡</button>
+						<button type="button" class="btn btn-default" id = "insertTeacherBtn">teacher ì¶”ê°€</button>
 					</div>
 				</div>
 				<span id = "helper"></span>
