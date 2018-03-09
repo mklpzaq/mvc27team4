@@ -1,4 +1,4 @@
-package kr.or.ksmart.dto;
+package service;
 
 public class Student {
 

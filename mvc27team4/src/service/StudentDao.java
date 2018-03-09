@@ -1,6 +1,4 @@
-package kr.or.ksmart.dao;
-
-import kr.or.ksmart.dto.Student;
+package service;
 
 public class StudentDao {
 

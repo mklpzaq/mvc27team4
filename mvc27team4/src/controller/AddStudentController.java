@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.ksmart.dao.StudentDao;
-import kr.or.ksmart.dto.Student;
+import service.Student;
+import service.StudentDao;
 
 
 @WebServlet("/addStudent")

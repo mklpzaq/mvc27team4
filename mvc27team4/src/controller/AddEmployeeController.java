@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.ksmart.dao.EmployeeDao;
-import kr.or.ksmart.dto.Employee;
+import service.Employee;
+import service.EmployeeDao;
 
 @WebServlet("/addEmployee.jjdev")
 public class AddEmployeeController extends HttpServlet {

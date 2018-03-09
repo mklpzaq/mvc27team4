@@ -1,9 +1,8 @@
-package kr.or.ksmart.dao;
+package service;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.DriverManager;
-import kr.or.ksmart.dto.Employee;
 
 public class EmployeeDao {
 	Connection conn = null;
