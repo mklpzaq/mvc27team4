@@ -3,9 +3,16 @@ package model;
 
 public class Student {
 
+	private String studentNo;
 	private String studentId;
 	private String studentPw;
 	
+	public String getStudentNo() {
+		return studentNo;
+	}
+	public void setStudentNo(String studentNo) {
+		this.studentNo = studentNo;
+	}
 	public String getStudentId() {
 		return studentId;
 	}

@@ -22,6 +22,7 @@ public class AddStudentController extends HttpServlet {
 
 	//student입력
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UFT-8");
 		//1.request.처리
 		//2.모델(DAO) 호출
 		//3.redirect(다른 controller호출)
