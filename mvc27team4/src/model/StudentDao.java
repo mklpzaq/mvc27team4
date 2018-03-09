@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import service.Student;
+import model.Student;
 
 public class StudentDao {
 	
