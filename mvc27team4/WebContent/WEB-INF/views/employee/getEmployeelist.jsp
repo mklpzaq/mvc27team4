@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@ page import= "service.Employee" %>
-<%@ page import= "service.EmployeeDao" %>
+<%@ page import= "model.Employee" %>
+<%@ page import= "model.EmployeeDao" %>
 <%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
@@ -33,9 +33,9 @@
 		      <tbody>
 		        <tr>
 		          <th scope="row">1</th>
-		          <td>Mark</td>
-		          <td>Otto</td>
-		          <td>@mdo</td>
+		          <td><%= employee.getEmployeeNom() %></td>
+		          <td><%= employee.getEmployeeId() %></td>
+		          <td><%= employee.getEmployeePw() %></td>
 		        </tr>		       
 	      </tbody>
 	    </table>
