@@ -1,3 +1,4 @@
+// [mvc27team4] ¿Ã¡ÿ»Ò
 package controller;
 
 import java.io.IOException;
@@ -12,20 +13,24 @@ import service.EmployeeDao;
 
 @WebServlet("/addEmployee.jjdev")
 public class AddEmployeeController extends HttpServlet {
-
+	EmployeeDao employeedao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/addEmployee.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/employee/addEmployee.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		String employeeId = request.getParameter("employeeId");
-		String employeePw = request.getParameter("guestPw");
-		Employee employee = new Employee();
-			// guest setter »£√‚
+		String employeePw = request.getParameter("employeePw");
+		String employeePwCheck = request.getParameter("employeePwCheck");
 		
-		EmployeeDao employeedao = new EmployeeDao();
+		Employee employee = new Employee();	
+			employee.setEmployeeId(employeeId);
+			employee.setEmployeePw(employeePw);
+		
+		employeedao = new EmployeeDao();
 		employeedao.insertEmployee(employee);
-		response.sendRedirect("/GetEmployeeList.jjdev");			
+		response.sendRedirect(request.getContextPath() + "/GetEmployeeList.jjdev");			
 	}
 
 }

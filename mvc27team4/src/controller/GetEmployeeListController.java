@@ -15,7 +15,9 @@ public class GetEmployeeListController extends HttpServlet {
 		// EmployeeDao
 		// request에 속성추가
 		// forward
-		request.getRequestDispatcher("/WEB-INF/views/getEmployeelist.jsp").forward(request, response);
+		
+		request.getRequestDispatcher("/WEB-INF/views/employee/getEmployeelist.jsp").forward(request, response);
+		
 	}
 
 }
