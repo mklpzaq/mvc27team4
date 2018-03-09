@@ -10,7 +10,7 @@ public class EmployeeDao {
 	PreparedStatement pstmt = null;
 	Employee emplo = null;
 	
-	public void insertEmployee(Employee emplo) {
+	public void insertEmployee(Employee employee) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			String jdbcDriver = "jdbc:mysql://localhost:3306/jjdev?useUnicode=true&characterEncoding=utf8";
@@ -20,8 +20,8 @@ public class EmployeeDao {
 			String sql = "insert into employee (employee_id, employee_pw) values(?, ?)";
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, emplo.getEmployeeId());
-			pstmt.setString(2, emplo.getEmployeePw());
+			pstmt.setString(1, employee.getEmployeeId());
+			pstmt.setString(2, employee.getEmployeePw());
 			pstmt.executeUpdate();
 			
 			pstmt.close();
