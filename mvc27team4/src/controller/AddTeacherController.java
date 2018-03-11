@@ -21,15 +21,9 @@ public class AddTeacherController extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/views/teacher/addTeacher.jsp").forward(request, response);
 	}
 	
-	// guest입력
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//1. request 처리
-		//2. 모델(DAO) 호출
-		//3. list redirect
-		
 		//DB접근하는 메서드가 있는 .java파일에서 setCharacterEncoding을 UTF-8로 설정하면 DB인서트에 한글이 된다.
 		request.setCharacterEncoding("UTF-8");
-		
 		String teacherId = request.getParameter("teacherId");
 		String teacherPw = request.getParameter("teacherPw");
 		

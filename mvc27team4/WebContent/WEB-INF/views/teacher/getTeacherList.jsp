@@ -9,36 +9,59 @@
 		<title>Teacher List</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		
 	</head>
 	<body>
 		<%
-			ArrayList<Teacher> list = (ArrayList<Teacher>)request.getAttribute("selectTeacher");	
-			
+			ArrayList<Teacher> list = (ArrayList<Teacher>)request.getAttribute("selectTeacher");
 		%>
-		
-		<h1>GuestList</h1>
-		<table>
-			<thead>
-				<tr>
-					<th>teacher_no</th>
-					<th>teacher_id</th>
-					<th>teacher_pw</th>
-				</tr>
-			</thead>
-			<%
-				for(Teacher teacher : list){
-			%>
-			<tbody>
-				<tr>
-					<td><input type = "text" name = "text" value = "<%= teacher.getTeacherNo() %>" readonly></td>
-					<td><input type = "text" name = "text" value = "<%= teacher.getTeacherId() %>"></td>
-					<td><input type = "text" name = "text" value = "<%= teacher.getTeacherPw() %>"></td>
-				</tr>
-			</tbody>
-			<%
-				}
-			%>
-		</table>
+		<div class = "row">
+			<div class = "col-sm-3"></div>
+			<div class = "col-sm-6">
+				<h1>TeacherList</h1>
+				<div class = "table-responsive">
+					<table class = "table table-hover">
+						<tr>
+							<th>teacher_no</th>
+							<th>teacher_id</th>
+							<th>teacher_pw</th>
+						</tr>
+						<%
+							for(Teacher teacher : list){
+						%>
+								<tr>
+									<td><%= teacher.getTeacherNo() %></td>
+									<td><%= teacher.getTeacherId() %></td>
+									<td><%= teacher.getTeacherPw() %></td>
+								</tr>
+						<%
+							}
+						%>
+					</table>
+				</div>
+			</div>
+			<div class = "col-sm-3"></div>
+		</div>
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

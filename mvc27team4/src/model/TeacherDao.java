@@ -15,19 +15,23 @@ public class TeacherDao {
 	ArrayList<Teacher> list = null;
 	Teacher teacher = null;
 	
+	/*
+	 * selectTeacher() 매서드는 DB안의 teacher 테이블에 저장된 모든 레코드를 ArrayList<Teacher>에 담아
+	 * ArrayList<Teacher>의 주소를 반환하는 매서드이다.
+	 */
 	public ArrayList<Teacher> selectTeacher(){
-		
 		try {
 			connection = DriverDB.driverConnection();
-			String sql = "SELECT * FROM teacher ORDER BY 'teacher_no' ASC";
-			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement = connection.prepareStatement("SELECT * FROM teacher");
 			resultSet = preparedStatement.executeQuery();
 			
+			list = new ArrayList<Teacher>();
 			while(resultSet.next()) {
 				teacher = new Teacher();
 				teacher.setTeacherNo(resultSet.getInt("teacher_no"));
 				teacher.setTeacherId(resultSet.getString("teacher_id"));
 				teacher.setTeacherPw(resultSet.getString("teacher_pw"));
+				list.add(teacher);
 			}
 			
 		}catch(ClassNotFoundException exception) {
@@ -73,8 +77,12 @@ public class TeacherDao {
 		return list;
 	}
 	
+	/*
+	 * insertTeacher(Teacher teacher) 매서드는 
+	 * Teacher객체의 맴버변수 teacherId, teacherPw가 사전에 세팅된 상태의 Teacher 객체의 주소값을 매개변수로 받는다.
+	 * 그리고 매서드 정의부분에서 매개변수로 받은 Teacher객체의 teacherId, teacherPw를 DB에 INSERT시킨다.
+	 * */
 	public void insertTeacher(Teacher teacher) {
-		
 		try {
 			connection = DriverDB.driverConnection();
 			String sql = "INSERT INTO teacher(teacher_id, teacher_pw) VALUES(?, ?)";
