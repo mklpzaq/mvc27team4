@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("modifyTeacher.jjdev")
+@WebServlet("/modifyTeacher.jjdev")
 public class ModifyTeacherController extends HttpServlet {
 	
 	public ModifyTeacherController() {
