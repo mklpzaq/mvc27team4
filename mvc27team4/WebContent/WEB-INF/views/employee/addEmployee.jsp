@@ -1,3 +1,4 @@
+<!-- [mvc27team4] 이준희 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -64,22 +65,22 @@
 			  <div class="form-group">
 			    <label for="exampleInputName2" class="control-label">employee_id</label>
 			    <input type="text" class="employeeId" placeholder="employeeId" name="employeeId">
-			  	<p class="employeeId_error">아이디는 3자 이상입니다.</p> 
+			  	<!-- <p class="employeeId_error">아이디는 3자 이상입니다.</p>  -->
 			  </div>
 			  <div class="form-group">
 			    <label for="exampleInputPassword2" class="col-sm-5 control-label">employee_pw</label>
 			    <input type="password" class="employeePw" placeholder="employeePw" name="employeePw">
-			 	<p class="employeePw_error">패스워드는 3자 이상입니다.</p>
+			 	<!-- <p class="employeePw_error">패스워드는 3자 이상입니다.</p> -->
 			  </div>
 			   <div class="form-group">
 			    <label for="exampleInputPassword2" class="col-sm-5 control-label">employee_pw확인</label>
 			    <input type="password" class="employeePwCheck" placeholder="employeePwCheck" name="employeePwCheck">
-			 	<p class="employeePwCheck_error">패스워드가 일치하지 않습니다.</p>
+			 	<!-- <p class="employeePwCheck_error">패스워드가 일치하지 않습니다.</p> -->
 			  </div>
 			  <div class="form-group" style="text-align: center;">
 			  <div>
 			  <button type="button" class="btn btn-default" id="btn">직원추가</button>	
-			  	<p class="btn-default_error">패스워드가 일치하지 않습니다.</p>
+			  	<!-- <p class="btn-default_error">패스워드가 일치하지 않습니다.</p> -->
 			  </div>	
 			  </div>  
 		</form>

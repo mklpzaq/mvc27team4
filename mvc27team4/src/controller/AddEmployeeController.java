@@ -1,4 +1,4 @@
-// [mvc27team4] ¿Ã¡ÿ»Ò
+/* [mvc27team4] Ïù¥Ï§ÄÌù¨ */ 
 package controller;
 
 import java.io.IOException;
@@ -18,7 +18,7 @@ public class AddEmployeeController extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("=============insert doPost »Æ¿Œ=====================");
+		System.out.println("=============insert doPost =====================");
 		request.setCharacterEncoding("UTF-8");
 		String employeeId = request.getParameter("employeeId");
 		String employeePw = request.getParameter("employeePw");

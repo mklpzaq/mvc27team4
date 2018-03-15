@@ -1,7 +1,7 @@
 package model;
 
 public class Employee {
-	private String employeeNom;
+	private int employeeNom;
 	private String employeeId;
 	private String employeePw;
 	
@@ -17,11 +17,16 @@ public class Employee {
 	public void setEmployeePw(String employeePw) {
 		this.employeePw = employeePw;
 	}
-	public String getEmployeeNom() {
+	public int getEmployeeNom() {
 		return employeeNom;
 	}
-	public void setEmployeeNom(String employeeNom) {
+	public void setEmployeeNom(int employeeNom) {
 		this.employeeNom = employeeNom;
+	}
+	@Override
+	public String toString() {
+		return "Employee [employeeNom=" + employeeNom + ", employeeId=" + employeeId + ", employeePw=" + employeePw
+				+ "]";
 	}
 	
 	

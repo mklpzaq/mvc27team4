@@ -1,3 +1,4 @@
+/* [mvc27team4] ì´ì¤€í¬ */
 package controller;
 
 import java.io.IOException;
@@ -18,7 +19,7 @@ public class GetEmployeeListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// request..
 		// EmployeeDao
-		// request¿¡ ¼Ó¼ºÃß°¡
+		// requestï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ß°ï¿½
 		// forward
 		EmployeeDao edao = new EmployeeDao();
 		ArrayList<Employee> list = edao.selectEmployee();
