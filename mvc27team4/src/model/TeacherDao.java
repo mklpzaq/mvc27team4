@@ -26,6 +26,67 @@ public class TeacherDao {
 		return 0;
 	}
 	
+	public Teacher updateTeacherOne(int teacherNo) {
+		System.out.println("teacherNo : "+ teacherNo);
+		try {
+			DriverDB db = new DriverDB();
+			connection = db.driverConnection();
+			preparedStatement = connection.prepareStatement("SELECt * FROM mvc WHERE teacher_no = ?");
+			preparedStatement.setInt(1, teacherNo);
+			resultSet = preparedStatement.executeQuery();
+			
+			if(resultSet.next()) {
+				System.out.println("쿼리 실행 결과 있나? mSelectforUpdate Mdao.java");
+				teacher = new Teacher();
+				teacher.setTeacherNo(resultSet.getInt("teacher_no"));
+				teacher.setTeacherId(resultSet.getString("teacher_id"));
+				teacher.setTeacherPw(resultSet.getString("teacher_pw"));
+			}
+			
+		}catch(ClassNotFoundException exception) {
+			exception.printStackTrace();
+			System.out.println(exception.getMessage());
+			System.out.println("TeacherDao.updateTeacherOne / ClassNotFoundException");
+		}catch(SQLException exception) {
+			exception.printStackTrace();
+			System.out.println(exception.getMessage());
+			System.out.println("TeacherDao.updateTeacherOne / SQLException");
+		}finally {
+			if(resultSet != null) {
+				try {
+					resultSet.close();
+					resultSet = null;
+				}catch(SQLException exception) {
+					exception.printStackTrace();
+					System.out.println(exception.getMessage());
+					System.out.println("TeacherDao.updateTeacherOne / resultSet.close() / SQLException");
+				}
+			}
+			if(preparedStatement != null) {
+				try {
+					preparedStatement.close();
+					preparedStatement = null;
+				}catch(SQLException exception) {
+					exception.printStackTrace();
+					System.out.println(exception.getMessage());
+					System.out.println("TeacherDao.updateTeacherOne / preparedStatement.close() / SQLException");
+				}
+			}
+			if(connection != null) {
+				try {
+					connection.close();
+					connection = null;
+				}catch(SQLException exception) {
+					exception.printStackTrace();
+					System.out.println(exception.getMessage());
+					System.out.println("TeacherDao.updateTeacherOne / connection.close() / SQLException");
+				}
+			}
+		}
+		
+		return teacher;
+	}
+	
 	
 	
 	/*
