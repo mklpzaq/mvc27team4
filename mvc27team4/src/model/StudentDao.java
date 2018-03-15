@@ -39,6 +39,35 @@ public class StudentDao {
 		return 0;
 	}
 	
+	public Student updateStudentOne(int studentNo) {
+		try {
+			connection = DriverDB.driverConnection();
+			sql = "SELECT * FROM student WHERE student_no=?";
+			statement = connection.prepareStatement(sql);
+			statement.setInt(1, studentNo);
+			resultSet = statement.executeQuery();
+			if(resultSet.next()) {
+				student = new Student();
+				student.setStudentNo(resultSet.getInt("student_no"));
+				student.setStudentId(resultSet.getString("student_id"));
+				student.setStudentPw(resultSet.getString("student_pw"));
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				resultSet.close();
+				statement.close();
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}	
+		return student;
+	}
+	
 	public int updateStudent(Student student) {
 		try {
 			connection = DriverDB.driverConnection();

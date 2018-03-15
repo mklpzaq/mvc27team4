@@ -10,24 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 import model.Student;
 import model.StudentDao;
 
-/**
- * Servlet implementation class ModifyStudentController
- */
 @WebServlet("/ModifyStudentController")
 public class ModifyStudentController extends HttpServlet {
 	private StudentDao studentDao;
-       
-	public ModifyStudentController() {
-        super();
-    }
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		studentDao = new StudentDao();
 		String studentNo = request.getParameter("studentNo");
-		Student student = new Student();
-		student.setStudentNo(Integer.parseInt(studentNo));
-		studentDao.updateStudent(student);
+		Student student = studentDao.updateStudentOne(Integer.parseInt(studentNo));
+		request.setAttribute("student", student);
+		request.getRequestDispatcher("/WEB-INF/views/student/modifyStudentForm.jsp").forward(request, response);
 	}
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//int result = studentDao.updateStudent(student);
+	}
 }
