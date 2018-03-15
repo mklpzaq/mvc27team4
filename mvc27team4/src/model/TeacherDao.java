@@ -21,16 +21,64 @@ public class TeacherDao {
 		return 0;
 	}
 	
+	/*
+	 *
+	 */
 	public int updateTeacher(Teacher teacher) {
+		System.out.println("TeacherDao.updateTeacher");
+		System.out.println("teacher : " + teacher);
 		
-		return 0;
+		try {
+			connection = DriverDB.driverConnection();
+			preparedStatement = connection.prepareStatement("UPDATE teacher SET teacher_id = ?, teacher_pw = ? WHERE teacher_no = ?");
+			preparedStatement.setString(1, teacher.getTeacherId());
+			preparedStatement.setString(2, teacher.getTeacherPw());
+			preparedStatement.setInt(3, teacher.getTeacherNo());
+	
+			result = preparedStatement.executeUpdate();
+		}catch(ClassNotFoundException exception) {
+			exception.printStackTrace();
+			System.out.println(exception.getMessage());
+			System.out.println("TeacherDao.updateTeacherOne / ClassNotFoundException");
+		}catch(SQLException exception) {
+			exception.printStackTrace();
+			System.out.println(exception.getMessage());
+			System.out.println("TeacherDao.updateTeacherOne / SQLException");
+		}finally {
+			if(preparedStatement != null) {
+				try {
+					preparedStatement.close();
+					preparedStatement = null;
+				}catch(SQLException exception) {
+					exception.printStackTrace();
+					System.out.println(exception.getMessage());
+					System.out.println("TeacherDao.updateTeacherOne / preparedStatement.close() / SQLException");
+				}
+			}
+			if(connection != null) {
+				try {
+					connection.close();
+					connection = null;
+				}catch(SQLException exception) {
+					exception.printStackTrace();
+					System.out.println(exception.getMessage());
+					System.out.println("TeacherDao.updateTeacherOne / connection.close() / SQLException");
+				}
+			}
+		}
+		
+		return result;
 	}
 	
+	/*
+	 * updateTeacherOne() 매서드는 DB안의 teacher 테이블에 저장된 teacherNo에 해당되는 레코드를 얻어
+	 * 새로이 생성한 Teacher객체의 맴버 변수에 해당되는 TeacherNo, setTeacherId, setTeacherPw에 세팅하여 
+	 * Teacher객체의 주소를 리턴시키는 메서드이다.
+	 */
 	public Teacher updateTeacherOne(int teacherNo) {
 		System.out.println("teacherNo : "+ teacherNo);
 		try {
-			DriverDB db = new DriverDB();
-			connection = db.driverConnection();
+			connection = DriverDB.driverConnection();
 			preparedStatement = connection.prepareStatement("SELECT * FROM teacher WHERE teacher_no = ?");
 			preparedStatement.setInt(1, teacherNo);
 			resultSet = preparedStatement.executeQuery();
@@ -86,8 +134,6 @@ public class TeacherDao {
 		
 		return teacher;
 	}
-	
-	
 	
 	/*
 	 * selectTeacher() 매서드는 DB안의 teacher 테이블에 저장된 모든 레코드를 ArrayList<Teacher>에 담아
