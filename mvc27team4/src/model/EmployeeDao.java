@@ -13,7 +13,24 @@ public class EmployeeDao {
 	Employee employee = null;
 	ResultSet result = null;
 	
-	public ArrayList<Employee> SelectEmployee(){
+	public Employee modifyEmployee(int employeeNom) {
+		try {
+			conn = DriverDB.driverConnection();
+			String sql = "";
+		
+		
+		
+		
+		
+		} catch (ClassNotFoundException e) {			
+			e.printStackTrace();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public ArrayList<Employee> selectEmployee(){
 		ArrayList<Employee> list = new  ArrayList<Employee>();	
 		try {
 			conn = DriverDB.driverConnection();

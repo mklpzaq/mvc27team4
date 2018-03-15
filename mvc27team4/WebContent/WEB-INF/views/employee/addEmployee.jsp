@@ -22,7 +22,7 @@
 			상황3: 상황1,상황2가 조건을 만족하고 버튼을 클릭시 조건에 해당되게 진행한다.  -->
 		
 		<script>
-			$(document).ready(function(){
+		/* 	$(document).ready(function(){
 				$("p").hide();
 				$("input.employeeId").blur(function(){
 					if($("input.employeeId").val().length <= 3) {
@@ -33,7 +33,7 @@
 				
 				});			
 				
-			});		
+			});		 */
 		
 			$(document).ready(function(){
 				$("#btn").click(function(){
@@ -48,7 +48,7 @@
 						$("input.employeeId").focus();
 					}else {
 						alert("입력완료");
-						$("input.employeeId").submit();
+						$("#insertEmployee").submit();
 					}
 				});
 				
@@ -60,7 +60,7 @@
 	<br>
 	<h1 style="text-align: center;">Employee Insert</h1>			
 		<div class="col-md-4"></div>
-		<form class="form-horizontal" method="post" href="<%=request.getContextPath()%>/addEmployee.jjdev" id="insertEmployee">
+		<form class="form-horizontal" method="post" action="<%=request.getContextPath()%>/addEmployee.jjdev" id="insertEmployee">
 			  <div class="form-group">
 			    <label for="exampleInputName2" class="control-label">employee_id</label>
 			    <input type="text" class="employeeId" placeholder="employeeId" name="employeeId">
