@@ -89,21 +89,15 @@ public class TeacherDao {
 		}
 		return list;
 	}
-<<<<<<< HEAD
-	/*
-	 * 
-	 * */
-	public int insertTeacher(Teacher teacher) {
-		
-=======
+
 	
 	/*
 	 * insertTeacher(Teacher teacher) 매서드는 
 	 * Teacher객체의 맴버변수 teacherId, teacherPw가 사전에 세팅된 상태의 Teacher 객체의 주소값을 매개변수로 받는다.
 	 * 그리고 매서드 정의부분에서 매개변수로 받은 Teacher객체의 teacherId, teacherPw를 DB에 INSERT시킨다.
 	 * */
-	public void insertTeacher(Teacher teacher) {
->>>>>>> refs/remotes/origin/master
+	public int insertTeacher(Teacher teacher) {
+
 		try {
 			connection = DriverDB.driverConnection();
 			String sql = "INSERT INTO teacher(teacher_id, teacher_pw) VALUES(?, ?)";
@@ -144,5 +138,6 @@ public class TeacherDao {
 			}
 		}
 		return result;
+		
 	}
 }
