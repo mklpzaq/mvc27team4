@@ -14,19 +14,26 @@
 	<table border="1">
 		<thead>
 			<tr>
-				<th>student_no</th>
-				<th>student_id</th>
+				<th>STUDENT_NO</th>
+				<th>STUDENT_ID</th>
+				<th>STUDENT_PW</th>
+				<th>수정</th>
+				<th>삭제</th>
+				<th>ADDR STUDENT_ADDR</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
 			<%
-				StudentDao studentDao = new StudentDao();
-				ArrayList<Student> list = studentDao.selectStudent();
+				ArrayList<Student> list = (ArrayList<Student>)request.getAttribute("list");
 				for(Student student : list) {
 			%>
 				<td><%=student.getStudentNo() %></td>
 				<td><%=student.getStudentId() %></td>
+				<td>****</td>
+				<td><a href="<%=request.getContextPath()%>/modifyStudent.jjdev?studentNo=<%=student.getStudentNo()%>">수정</a></td>
+				<td><a href="<%=request.getContextPath()%>/removeStudent.jjdev?studentNo=<%=student.getStudentNo()%>">삭제</a></td>
+				<td><a href="<%=request.getContextPath()%>/addrStudentAddr.jjdev?studentAddrNo=<%=student.getStudentNo()%>">주소추가</a></td>
 			<%
 				}
 			%>
