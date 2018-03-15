@@ -14,6 +14,19 @@ public class TeacherDao {
 	ResultSet resultSet = null;
 	ArrayList<Teacher> list = null;
 	Teacher teacher = null;
+	int result = 0;
+	
+	public int deleteTeacher(int GuestNo) {	//Teahcer teahcer¹Þ¾Æµµ µÊ
+		
+		return 0;
+	}
+	
+	public int updateTeacher(Teacher teacher) {
+		
+		return 0;
+	}
+	
+	
 	
 	public ArrayList<Teacher> selectTeacher(){
 		
@@ -23,11 +36,13 @@ public class TeacherDao {
 			preparedStatement = connection.prepareStatement(sql);
 			resultSet = preparedStatement.executeQuery();
 			
+			list = new ArrayList<Teacher>();
 			while(resultSet.next()) {
 				teacher = new Teacher();
 				teacher.setTeacherNo(resultSet.getInt("teacher_no"));
 				teacher.setTeacherId(resultSet.getString("teacher_id"));
 				teacher.setTeacherPw(resultSet.getString("teacher_pw"));
+				list.add(teacher);
 			}
 			
 		}catch(ClassNotFoundException exception) {
@@ -72,8 +87,10 @@ public class TeacherDao {
 		}
 		return list;
 	}
-	
-	public void insertTeacher(Teacher teacher) {
+	/*
+	 * 
+	 * */
+	public int insertTeacher(Teacher teacher) {
 		
 		try {
 			connection = DriverDB.driverConnection();
@@ -82,7 +99,7 @@ public class TeacherDao {
 			preparedStatement.setString(1, teacher.getTeacherId());
 			preparedStatement.setString(2, teacher.getTeacherPw());
 			
-			preparedStatement.executeUpdate();
+			result = preparedStatement.executeUpdate();
 			
 		}catch(ClassNotFoundException exception) {
 			exception.printStackTrace();
@@ -114,5 +131,6 @@ public class TeacherDao {
 				}
 			}
 		}
+		return result;
 	}
 }

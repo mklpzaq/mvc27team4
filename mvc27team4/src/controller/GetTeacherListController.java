@@ -1,4 +1,4 @@
-// [mvc27team4] ¿Ã√·∏≤
+/* [mvc27team4] ¿Ã√·∏≤ */
 package controller;
 
 import java.io.IOException;
@@ -23,9 +23,6 @@ public class GetTeacherListController extends HttpServlet {
 		 
 		TeacherDao teacherDao = new TeacherDao();
 		ArrayList<Teacher> list = teacherDao.selectTeacher();
-		
-		
-		
 		
 		request.setAttribute("selectTeacher", list);
 		

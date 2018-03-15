@@ -5,7 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Insert title here</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<style>
 		h1{text-align: center;}
@@ -36,22 +36,22 @@
 			<form  method = "post" class="form-horizontal" id = "insertTeacherForm" action = "<%= request.getContextPath() %>/addTeacher.jjdev">
 				<h1>addTeacher</h1>
 				<div class="form-group">
-					<label for="teacherId" class="col-sm-2 control-label">teacher_id</label>
-					<div class="col-sm-10">
+					<label for="teacherId" class="col-sm-3 control-label">teacher_id</label>
+					<div class="col-sm-9">
 						<input type="text" class="form-control" id="teacherId" name = "teacherId" placeholder="ID">
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label for="teacherPw" class="col-sm-2 control-label">teacher_pw</label>
-					<div class="col-sm-10">
+					<label for="teacherPw" class="col-sm-3 control-label">teacher_pw</label>
+					<div class="col-sm-9">
 						<input type="password" class="form-control" id="teacherPw" name = "teacherPw" placeholder="PW">
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label for="teacherPwCheck" class="col-sm-2 control-label">teacher_pw 확인</label>
-					<div class="col-sm-10">
+					<label for="teacherPwCheck" class="col-sm-3 control-label">teacher_pw 확인</label>
+					<div class="col-sm-9">
 						<input type="password" class="form-control" id="teacherPwCheck" name = "teacherPwCheck" placeholder="PW CHECK">
 					</div>
 				</div>
@@ -66,5 +66,7 @@
 		</div>
 		<div class = "col-sm-4"></div>
 	</div>
+	
+	
 </body>
 </html>

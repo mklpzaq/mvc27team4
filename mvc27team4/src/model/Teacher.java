@@ -5,7 +5,7 @@ public class Teacher {
 	int teacherNo;
 	String teacherId;
 	String teacherPw;
-	
+	String teacherAddr;
 	public int getTeacherNo() {
 		return teacherNo;
 	}
@@ -24,11 +24,21 @@ public class Teacher {
 	public void setTeacherPw(String teacherPw) {
 		this.teacherPw = teacherPw;
 	}
-	
+	public String getTeacherAddr() {
+		return teacherAddr;
+	}
+	public void setTeacherAddr(String teacherAddr) {
+		this.teacherAddr = teacherAddr;
+	}
 	@Override
 	public String toString() {
-		return "Teacher [teacherNo=" + teacherNo + ", teacherId=" + teacherId + ", teacherPw=" + teacherPw + "]";
+		return "Teacher [teacherNo=" + teacherNo + ", teacherId=" + teacherId + ", teacherPw=" + teacherPw
+				+ ", teacherAddr=" + teacherAddr + "]";
 	}
+	
+	
+	
+
 	
 	
 }
