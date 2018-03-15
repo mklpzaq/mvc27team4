@@ -1,4 +1,4 @@
-/* [mvc27team4] ¹æ¹Î¿µ */
+/*[mvc27team4] ë°©ë¯¼ì˜*/
 package model;
 
 import java.sql.Connection;
@@ -92,10 +92,10 @@ public class StudentDao {
 		return result;
 	}
 	
-	/* ÀüÃ¼ÇĞ»ıÀ» Á¶È¸ÇØ¼­ ¸®½ºÆ®È­¸é¿¡ º¸¿©ÁÖ±â À§ÇØ ´ÙÀ½ÀÇ ¸Ş¼Òµå¸¦ ¼±¾ğÇÑ´Ù.
-	 * Á¶È¸ Äõ¸®¸¦ ½ÇÇàÇÑ °ªÀ» ResultSet¿¡ ´ã°í, ÀÌ°ÍÀ» ´Ù½Ã Student°´Ã¼¿¡ ´ãÀº ÈÄ ArrayList<Student>¿¡ ´ã´Â´Ù.
-	 * ArrayList<Student>ÀÇ °´Ã¼ÂüÁ¶º¯¼öÀÎ list¸¦ ¸®ÅÏÇÑ´Ù.
-	 * ->¸®½ºÆ®È­¸é¿¡¼­ ÀÌ ¸Ş¼Òµå¸¦ ½ÇÇàÇÏ¸é ÀüÃ¼ÇĞ»ı Á¶È¸°ªÀÌ ´ã±ä ¸®ÅÏ°ªÀÌ ¹İÈ¯µÇ¾î È­¸é¿¡ º¸¿©Áø´Ù.
+	/* ì „ì²´í•™ìƒì„ ì¡°íšŒí•´ì„œ ë¦¬ìŠ¤íŠ¸í™”ë©´ì— ë³´ì—¬ì£¼ê¸° ìœ„í•´ ë‹¤ìŒì˜ ë©”ì†Œë“œë¥¼ ì„ ì–¸í•œë‹¤.
+	 * ì¡°íšŒ ì¿¼ë¦¬ë¥¼ ì‹¤í–‰í•œ ê°’ì„ ResultSetì— ë‹´ê³ , ì´ê²ƒì„ ë‹¤ì‹œ Studentê°ì²´ì— ë‹´ì€ í›„ ArrayList<Student>ì— ë‹´ëŠ”ë‹¤.
+	 * ArrayList<Student>ì˜ ê°ì²´ì°¸ì¡°ë³€ìˆ˜ì¸ listë¥¼ ë¦¬í„´í•œë‹¤.
+	 * ->ë¦¬ìŠ¤íŠ¸í™”ë©´ì—ì„œ ì´ ë©”ì†Œë“œë¥¼ ì‹¤í–‰í•˜ë©´ ì „ì²´í•™ìƒ ì¡°íšŒê°’ì´ ë‹´ê¸´ ë¦¬í„´ê°’ì´ ë°˜í™˜ë˜ì–´ í™”ë©´ì— ë³´ì—¬ì§„ë‹¤.
 	 */
 	public ArrayList<Student> selectStudent(){
 		list = new ArrayList<Student>();
@@ -105,6 +105,7 @@ public class StudentDao {
 			statement = connection.prepareStatement(sql);
 			resultSet = statement.executeQuery();
 			while(resultSet.next()) {
+				student = new Student();
 				student.setStudentId(resultSet.getString("student_id"));
 				student.setStudentPw(resultSet.getString("student_pw"));
 				list.add(student);
@@ -125,9 +126,11 @@ public class StudentDao {
 		return list;
 	}
 	
-	/* È­¸é¿¡¼­ ÀÔ·ÂÇÑ °ªÀ» DB¿¡ ¼¼ÆÃÇÏ±â À§ÇØ ´ÙÀ½ÀÇ ¸Ş¼Òµå¸¦ ¼±¾ğÇÑ´Ù.
+
+	/* í™”ë©´ì—ì„œ ì…ë ¥í•œ ê°’ì„ DBì— ì„¸íŒ…í•˜ê¸° ìœ„í•´ ë‹¤ìŒì˜ ë©”ì†Œë“œë¥¼ ì„ ì–¸í•œë‹¤.
 	 */
 	public int insertStudent(Student student) {
+		System.out.println("StudentDao.insertStudent");
 		try {
 			connection = DriverDB.driverConnection();
 			sql = "INSERT INTO student(student_id, student_pw) VALUES(?, ?)";

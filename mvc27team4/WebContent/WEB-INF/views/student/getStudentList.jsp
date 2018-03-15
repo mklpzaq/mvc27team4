@@ -1,12 +1,12 @@
-<!-- [mvc27team4] ¹æ¹Î¿µ -->
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<!-- [mvc27team4] ë°©ë¯¼ì˜ -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "model.StudentDao" %>
 <%@ page import = "model.Student" %>
 <%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -17,8 +17,8 @@
 				<th>STUDENT_NO</th>
 				<th>STUDENT_ID</th>
 				<th>STUDENT_PW</th>
-				<th>¼öÁ¤</th>
-				<th>»èÁ¦</th>
+				<th>ìˆ˜ì •</th>
+				<th>ì‚­ì œ</th>
 				<th>ADDR STUDENT_ADDR</th>
 			</tr>
 		</thead>
@@ -31,13 +31,13 @@
 				<td><%=student.getStudentNo() %></td>
 				<td><%=student.getStudentId() %></td>
 				<td>****</td>
-				<td><a href="<%=request.getContextPath()%>/modifyStudent.jjdev?studentNo=<%=student.getStudentNo()%>">¼öÁ¤</a></td>
-				<td><a href="<%=request.getContextPath()%>/removeStudent.jjdev?studentNo=<%=student.getStudentNo()%>">»èÁ¦</a></td>
-				<td><a href="<%=request.getContextPath()%>/addrStudentAddr.jjdev?studentAddrNo=<%=student.getStudentNo()%>">ÁÖ¼ÒÃß°¡</a></td>
+				<td><a href="<%=request.getContextPath()%>/modifyStudent.jjdev?studentNo=<%=student.getStudentNo()%>">ìˆ˜ì •</a></td>
+				<td><a href="<%=request.getContextPath()%>/removeStudent.jjdev?studentNo=<%=student.getStudentNo()%>">ì‚­ì œ</a></td>
+				<td><a href="<%=request.getContextPath()%>/addrStudentAddr.jjdev?studentAddrNo=<%=student.getStudentNo()%>">ì£¼ì†Œì¶”ê°€</a></td>
+			</tr>
 			<%
 				}
 			%>
-			</tr>
 		</tbody>
 	</table>
 </body>

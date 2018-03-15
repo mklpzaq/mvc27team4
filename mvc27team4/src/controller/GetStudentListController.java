@@ -1,4 +1,4 @@
-/* [mvc27team4] πÊπŒøµ */
+/*[mvc27team4] Î∞©ÎØºÏòÅ*/
 package controller;
 
 import java.io.IOException;
@@ -13,17 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 import model.Student;
 import model.StudentDao;
 
-
 @WebServlet("/getStudentList.jjdev")
 public class GetStudentListController extends HttpServlet {
+	
 	private StudentDao studentDao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UFT-8");
-		//request...
-		//StudentDao
-		//requestø° º”º∫ √ﬂ∞°
-		//forward
+		System.out.println("GetStudentListController / doGet");
+		//request.setCharacterEncoding("UTF-8");
+		
+		
+		studentDao = new StudentDao();
 		ArrayList<Student> list = studentDao.selectStudent();
+		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/WEB-INF/views/student/getStudentList.jsp").forward(request, response);
 	}

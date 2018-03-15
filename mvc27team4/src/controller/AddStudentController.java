@@ -1,4 +1,4 @@
-/* [mvc27team4] ¹æ¹Î¿µ */
+/*[mvc27team4] ë°©ë¯¼ì˜*/
 package controller;
 
 import java.io.IOException;
@@ -15,24 +15,24 @@ import model.StudentDao;
 @WebServlet("/addStudent.jjdev")
 public class AddStudentController extends HttpServlet {
 	private StudentDao studentDao;
-	//studentÀÔ·Â Æû¿äÃ»
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("WEB-INF/views/student/addStudent.jsp").forward(request, response);
 	}
 
-	//studentÀÔ·Â
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		//1.request.Ã³¸®
-		//2.¸ğµ¨(DAO) È£Ãâ
-		//3.redirect(´Ù¸¥ controllerÈ£Ãâ)
 		String studentId = request.getParameter("studentId");
 		String studentPw = request.getParameter("studentPw");
+		System.out.println(studentId);
+		System.out.println(studentPw);
+		
+		
 		Student student = new Student();
 		student.setStudentId(studentId);
 		student.setStudentPw(studentPw);
 		this.studentDao = new StudentDao();
+		
 		studentDao.insertStudent(student);
+		
 		response.sendRedirect(request.getContextPath()+"/getStudentList.jjdev");
 	}
 }

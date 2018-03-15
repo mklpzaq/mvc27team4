@@ -1,4 +1,4 @@
-/* [mvc27team4] ¹æ¹Î¿µ */
+/*[mvc27team4] ë°©ë¯¼ì˜*/
 package model;
 
 public class Student {
