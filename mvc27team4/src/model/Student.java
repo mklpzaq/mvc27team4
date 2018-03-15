@@ -3,14 +3,14 @@ package model;
 
 public class Student {
 
-	private String studentNo;
+	private int studentNo;
 	private String studentId;
 	private String studentPw;
 	
-	public String getStudentNo() {
+	public int getStudentNo() {
 		return studentNo;
 	}
-	public void setStudentNo(String studentNo) {
+	public void setStudentNo(int studentNo) {
 		this.studentNo = studentNo;
 	}
 	public String getStudentId() {
@@ -24,6 +24,10 @@ public class Student {
 	}
 	public void setStudentPw(String studentPw) {
 		this.studentPw = studentPw;
+	}
+	@Override
+	public String toString() {
+		return "Student [studentNo=" + studentNo + ", studentId=" + studentId + ", studentPw=" + studentPw + "]";
 	}
 	
 	

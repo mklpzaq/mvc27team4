@@ -18,6 +18,7 @@ public class AddEmployeeController extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("=============insert doPost »Æ¿Œ=====================");
 		request.setCharacterEncoding("UTF-8");
 		String employeeId = request.getParameter("employeeId");
 		String employeePw = request.getParameter("employeePw");

@@ -14,7 +14,7 @@
 	<h1>Employee List</h1>
 	<%
 		EmployeeDao employeedao = new EmployeeDao();
-		ArrayList<Employee> list = employeedao.SelectEmployee();
+		ArrayList<Employee> list = (ArrayList<Employee>)request.getAttribute("selectemployee");
 	%>
 	<%
 		for(Employee employee : list) {			
@@ -24,16 +24,21 @@
 		      <caption>Optional table caption.</caption>
 		      <thead>
 		        <tr>
-		          <th>#</th>
-		          <th>employeeNom</th>
-		          <th>employeeId</th>
-		          <th>employeePw</th>
+		          <th>EMPLOYEE_NO</th>		        
+		          <th>EMPLOYEE_Id</th>
+		          <!-- <th>EMPLOYEE_Pw</th> -->
+		          <th>수정</th> <!-- employeeDao.updateGuest() -->
+		          <th>삭제</th> <!-- employeeDao.deleteGuest() -->	
+		          <th>ADD EMPLOYEE_ADDR</th> <!-- employeeAddrDao.insertGuestAddr() -->
 		        </tr>
 		      </thead>
 		      <tbody>
 		        <tr>
 		          <th scope="row"><%= employee.getEmployeeNom() %></th>		        
-		          <td><%= employee.getEmployeeId() %></td>		         
+		          <td><%= employee.getEmployeeId() %></td>
+		          <td><a href="<%=request.getContextPath()%>/ModifyEmployee.jjdev?send_Nom=<%=employee.getEmployeeNom()%>">수정</a></td>
+		          <td><a href="">삭제</a></td>
+		          <td><a href="">주소추가</a></td>		         
 		        </tr>		       
 	      </tbody>
 	    </table>
