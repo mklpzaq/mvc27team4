@@ -1,4 +1,4 @@
-// [mvc27team4] ¿Ã√·∏≤
+/* [mvc27team4] ¿Ã√·∏≤ */
 package model;
 
 public class Teacher {
