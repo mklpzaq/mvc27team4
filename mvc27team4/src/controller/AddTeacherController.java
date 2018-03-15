@@ -1,4 +1,4 @@
-/* [mvc27team4] ÀÌÃá¸² */
+/* [mvc27team4] ì´ì¶˜ë¦¼ */
 package controller;
 
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class AddTeacherController extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//DBÁ¢±ÙÇÏ´Â ¸Ş¼­µå°¡ ÀÖ´Â .javaÆÄÀÏ¿¡¼­ setCharacterEncodingÀ» UTF-8·Î ¼³Á¤ÇÏ¸é DBÀÎ¼­Æ®¿¡ ÇÑ±ÛÀÌ µÈ´Ù.
+		
 		request.setCharacterEncoding("UTF-8");
 		String teacherId = request.getParameter("teacherId");
 		String teacherPw = request.getParameter("teacherPw");
@@ -34,8 +34,6 @@ public class AddTeacherController extends HttpServlet {
 		this.teacherDao = new TeacherDao();
 		this.teacherDao.insertTeacher(teacher);
 		
-		//³ª´Â ºä°¡ ¾øÀ¸¹Ç·Î ¸®½ºÆ®ÂÊÀ» Àç¿ëÃ»ÇÏ°Ú´Ù.
-		//ºä¸¦ °¡Áø°ÍÀ¸·Î ¸®´ÙÀÌ·ºÆ®
 		response.sendRedirect(request.getContextPath() + "/getTeacherList.jjdev");
 	}
 

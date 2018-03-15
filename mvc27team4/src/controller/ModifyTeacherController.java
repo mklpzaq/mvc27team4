@@ -1,3 +1,4 @@
+/* [mvc27team4] 이춘림 */
 package controller;
 
 import java.io.IOException;
@@ -34,6 +35,9 @@ public class ModifyTeacherController extends HttpServlet {
 		int teacherNo = Integer.parseInt(tempString);
 		String teacherId = request.getParameter("teacherId");
 		String teacherPw = request.getParameter("teacherPw");
+		System.out.println(teacherNo + "<--teacherNo");
+		System.out.println(teacherId + "<--teacherId");
+		System.out.println(teacherPw + "<--teacherPw");
 		
 		Teacher teacher = new Teacher();
 		teacher.setTeacherNo(teacherNo);
@@ -43,8 +47,7 @@ public class ModifyTeacherController extends HttpServlet {
 		TeacherDao teacherDao = new TeacherDao();
 		teacherDao.updateTeacher(teacher);
 		
-		
-		
+		response.sendRedirect(request.getContextPath() + "/getTeacherList.jjdev");
 	}
 
 }

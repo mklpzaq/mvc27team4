@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="UTF-8"%>
+<!-- [mvc27team4] 이춘림  -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "model.Teacher" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +19,7 @@
 </head>
 <body>
 	<%
+		request.setCharacterEncoding("UTF-8");
 		Teacher teacher = (Teacher)request.getAttribute("oneTeacher");
 	%>
 	<h3>UPDATE FORM</h3>

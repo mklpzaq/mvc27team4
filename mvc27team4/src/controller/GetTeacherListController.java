@@ -1,4 +1,4 @@
-/* [mvc27team4] ¿Ã√·∏≤ */
+/* [mvc27team4] Ïù¥Ï∂òÎ¶º */
 package controller;
 
 import java.io.IOException;
@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class GetTeacherListController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		TeacherDao teacherDao = new TeacherDao();
 		ArrayList<Teacher> list = teacherDao.selectTeacher();
 

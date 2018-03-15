@@ -1,4 +1,4 @@
-/* [mvc27team4] ÀÌÃá¸² */
+/* [mvc27team4] ì´ì¶˜ë¦¼ */
 package model;
 
 public class TeacherAddrDao {

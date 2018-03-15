@@ -1,4 +1,4 @@
-/* [mvc27team4] ÀÌÃá¸² */
+/* [mvc27team4] ì´ì¶˜ë¦¼ */
 package model;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,9 +6,7 @@ import java.sql.SQLException;
 
 public class DriverDB {
 	/* 
-	 * forName() ¸Ş¼­µå¸¦ ÅëÇØ jdbcµå¶óÀÌ¹ö¸¦ ·ÎµùÇÏ°í
-	 * DB urlÁ¤º¸(IP, Æ÷Æ®¹øÈ£, DB¸í)¿Í DBÀÇ ID, PW Á¤º¸¸¦ getConnection()¸Ş¼­µåÀÇ ¸Å°³º¯¼ö·Î ³Ö¾î 
-	 * DB¿Í ¿¬°áÇÑ ÈÄ, getConnection() ¸Ş¼­µåÀÇ ½ÇÇà °á°ú·Î »ı¼ºµÈ Connection°´Ã¼ÀÇ ÁÖ¼Ò°ªÀ» ¸®ÅÏÇÑ´Ù. 
+	 * 
 	 * */
 	public static Connection driverConnection() throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.jdbc.Driver");

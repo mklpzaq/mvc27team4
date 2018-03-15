@@ -1,4 +1,4 @@
-<!-- [mvc27team4] 이춘림 -->
+<!-- [mvc27team4] 이춘림  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -41,6 +41,7 @@
 					<div class="col-sm-9">
 						<input type="text" class="form-control" id="teacherId" name = "teacherId" placeholder="ID">
 					</div>
+				</div>
 				
 				<div class="form-group">
 					<label for="teacherPw" class="col-sm-3 control-label">teacher_pw</label>

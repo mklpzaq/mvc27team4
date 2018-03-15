@@ -1,4 +1,4 @@
-/* [mvc27team4] ¿Ã√·∏≤ */
+/* [mvc27team4] Ïù¥Ï∂òÎ¶º */
 package model;
 import model.DriverDB;
 
@@ -16,9 +16,49 @@ public class TeacherDao {
 	Teacher teacher = null;
 	int result = 0;
 	
-	public int deleteTeacher(int GuestNo) {	//Teahcer teahcerπﬁæ∆µµ µ 
+	public int deleteTeacher(int teacherNo) {	
 		
-		return 0;
+		System.out.println("TeacherDao.deleteTeacher");
+		System.out.println("teacherNo : " + teacherNo);
+		
+		try {
+			connection = DriverDB.driverConnection();
+			
+			preparedStatement = connection.prepareStatement("DELETE FROM teacher WHERE teacher_no = ?");
+			preparedStatement.setInt(1, teacherNo);
+			result = preparedStatement.executeUpdate();
+			
+		}catch(ClassNotFoundException exception) {
+			exception.printStackTrace();
+			System.out.println(exception.getMessage());
+			System.out.println("TeacherDao.deleteTeacher / ClassNotFoundException");
+		}catch(SQLException exception) {
+			exception.printStackTrace();
+			System.out.println(exception.getMessage());
+			System.out.println("TeacherDao.deleteTeacher / SQLException");
+		}finally {
+			if(preparedStatement != null) {
+				try {
+					preparedStatement.close();
+					preparedStatement = null;
+				}catch(SQLException exception) {
+					exception.printStackTrace();
+					System.out.println(exception.getMessage());
+					System.out.println("TeacherDao.deleteTeacher / preparedStatement.close() / SQLException");
+				}
+			}
+			if(connection != null) {
+				try {
+					connection.close();
+					connection = null;
+				}catch(SQLException exception) {
+					exception.printStackTrace();
+					System.out.println(exception.getMessage());
+					System.out.println("TeacherDao.deleteTeacher / connection.close() / SQLException");
+				}
+			}
+		}
+		return result;
 	}
 	
 	/*
@@ -39,11 +79,11 @@ public class TeacherDao {
 		}catch(ClassNotFoundException exception) {
 			exception.printStackTrace();
 			System.out.println(exception.getMessage());
-			System.out.println("TeacherDao.updateTeacherOne / ClassNotFoundException");
+			System.out.println("TeacherDao.updateTeacher / ClassNotFoundException");
 		}catch(SQLException exception) {
 			exception.printStackTrace();
 			System.out.println(exception.getMessage());
-			System.out.println("TeacherDao.updateTeacherOne / SQLException");
+			System.out.println("TeacherDao.updateTeacher / SQLException");
 		}finally {
 			if(preparedStatement != null) {
 				try {
@@ -52,7 +92,7 @@ public class TeacherDao {
 				}catch(SQLException exception) {
 					exception.printStackTrace();
 					System.out.println(exception.getMessage());
-					System.out.println("TeacherDao.updateTeacherOne / preparedStatement.close() / SQLException");
+					System.out.println("TeacherDao.updateTeacher / preparedStatement.close() / SQLException");
 				}
 			}
 			if(connection != null) {
@@ -62,7 +102,7 @@ public class TeacherDao {
 				}catch(SQLException exception) {
 					exception.printStackTrace();
 					System.out.println(exception.getMessage());
-					System.out.println("TeacherDao.updateTeacherOne / connection.close() / SQLException");
+					System.out.println("TeacherDao.updateTeacher / connection.close() / SQLException");
 				}
 			}
 		}
@@ -71,9 +111,7 @@ public class TeacherDao {
 	}
 	
 	/*
-	 * updateTeacherOne() ∏≈º≠µÂ¥¬ DBæ»¿« teacher ≈◊¿Ã∫Ìø° ¿˙¿Âµ» teacherNoø° «ÿ¥Áµ«¥¬ ∑πƒ⁄µÂ∏¶ æÚæÓ
-	 * ªı∑Œ¿Ã ª˝º∫«— Teacher∞¥√º¿« ∏…πˆ ∫Øºˆø° «ÿ¥Áµ«¥¬ TeacherNo, setTeacherId, setTeacherPwø° ºº∆√«œø© 
-	 * Teacher∞¥√º¿« ¡÷º“∏¶ ∏Æ≈œΩ√≈∞¥¬ ∏ﬁº≠µÂ¿Ã¥Ÿ.
+	 * 
 	 */
 	public Teacher updateTeacherOne(int teacherNo) {
 		System.out.println("teacherNo : "+ teacherNo);
@@ -136,8 +174,7 @@ public class TeacherDao {
 	}
 	
 	/*
-	 * selectTeacher() ∏≈º≠µÂ¥¬ DBæ»¿« teacher ≈◊¿Ã∫Ìø° ¿˙¿Âµ» ∏µÁ ∑πƒ⁄µÂ∏¶ ArrayList<Teacher>ø° ¥„æ∆
-	 * ArrayList<Teacher>¿« ¡÷º“∏¶ π›»Ø«œ¥¬ ∏≈º≠µÂ¿Ã¥Ÿ.
+	 * 
 	 */
 	public ArrayList<Teacher> selectTeacher(){
 		try {
@@ -199,9 +236,7 @@ public class TeacherDao {
 
 	
 	/*
-	 * insertTeacher(Teacher teacher) ∏≈º≠µÂ¥¬ 
-	 * Teacher∞¥√º¿« ∏…πˆ∫Øºˆ teacherId, teacherPw∞° ªÁ¿¸ø° ºº∆√µ» ªÛ≈¬¿« Teacher ∞¥√º¿« ¡÷º“∞™¿ª ∏≈∞≥∫Øºˆ∑Œ πﬁ¥¬¥Ÿ.
-	 * ±◊∏Æ∞Ì ∏≈º≠µÂ ¡§¿«∫Œ∫–ø°º≠ ∏≈∞≥∫Øºˆ∑Œ πﬁ¿∫ Teacher∞¥√º¿« teacherId, teacherPw∏¶ DBø° INSERTΩ√≈≤¥Ÿ.
+	 * 
 	 * */
 	public int insertTeacher(Teacher teacher) {
 
