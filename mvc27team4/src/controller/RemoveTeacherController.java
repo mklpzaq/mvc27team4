@@ -8,12 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/removeTeacher.jjdev")
-public class MoveTeacherController extends HttpServlet {
+public class RemoveTeacherController extends HttpServlet {
        
-    public MoveTeacherController() {
-        super();
-    }
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 	}

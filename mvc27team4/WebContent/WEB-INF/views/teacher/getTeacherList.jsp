@@ -34,7 +34,7 @@
 						<td><%= teacher.getTeacherPw() %></td>
 						<td><a href="<%=request.getContextPath()%>/modifyTeacher.jjdev?teacherNo=<%=teacher.getTeacherNo()%>">수정</a></td><!-- 티쳐의 넘버가 필요하다. -->
 						<td><a href="<%=request.getContextPath()%>/removeTeacher.jjdev?teacherNo=<%=teacher.getTeacherNo()%>">삭제</a></td><!-- 티쳐의 넘버가 필요하다. -->
-						<td><a href="<%=request.getContextPath()%>/addTeacherAddr.jjdev?teacherAdderNo=<%=teacher.getTeacherNo()%>">주소추가</a></td><!-- 티쳐의 넘버가 필요하다. -->
+						<td><a href="<%=request.getContextPath()%>/addTeacherAddr.jjdev?teacherAddrNo=<%=teacher.getTeacherNo()%>">주소추가</a></td><!-- 티쳐의 넘버가 필요하다. -->
 						
 						
 						<td><a href="">삭제</a></td><!-- 티쳐의 넘버가 필요하다. -->

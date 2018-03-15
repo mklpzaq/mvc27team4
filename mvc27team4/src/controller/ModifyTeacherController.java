@@ -11,10 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/modifyTeacher.jjdev")
 public class ModifyTeacherController extends HttpServlet {
 	
-	public ModifyTeacherController() {
-        super();
-    }
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 	}
