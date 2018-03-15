@@ -2,10 +2,11 @@
 package model;
 
 public class Teacher {
-	int teacherNo;
-	String teacherId;
-	String teacherPw;
-	String teacherAddr;
+	private int teacherNo;
+	private String teacherId;
+	private String teacherPw;
+	private String teacherAddr;
+	
 	public int getTeacherNo() {
 		return teacherNo;
 	}

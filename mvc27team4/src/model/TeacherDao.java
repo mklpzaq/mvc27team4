@@ -31,16 +31,16 @@ public class TeacherDao {
 		try {
 			DriverDB db = new DriverDB();
 			connection = db.driverConnection();
-			preparedStatement = connection.prepareStatement("SELECt * FROM mvc WHERE teacher_no = ?");
+			preparedStatement = connection.prepareStatement("SELECT * FROM teacher WHERE teacher_no = ?");
 			preparedStatement.setInt(1, teacherNo);
 			resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
-				System.out.println("쿼리 실행 결과 있나? mSelectforUpdate Mdao.java");
 				teacher = new Teacher();
 				teacher.setTeacherNo(resultSet.getInt("teacher_no"));
 				teacher.setTeacherId(resultSet.getString("teacher_id"));
 				teacher.setTeacherPw(resultSet.getString("teacher_pw"));
+				System.out.println("teacher : " + teacher);
 			}
 			
 		}catch(ClassNotFoundException exception) {
