@@ -24,7 +24,6 @@ public class TeacherAddr {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
 	@Override
 	public String toString() {
 		return "TeacherAddr [teacherAddrNo=" + teacherAddrNo + ", teacherNo=" + teacherNo + ", address=" + address

@@ -25,9 +25,6 @@ public class GetTeacherAddrListController extends HttpServlet {
 		request.setAttribute("teacherAddrList", list);
 		
 		
-		
-		
-		
 		request.getRequestDispatcher("/WEB-INF/views/teacher/getTeacherAddrList.jsp").forward(request, response);
 	}
 

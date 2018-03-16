@@ -10,10 +10,8 @@
 		<title>Insert title here</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	
 	</head>
 	<body>
-		
 		<div class="bs-example" data-example-id="simple-table">
 			<button id = "insertAddrButton" type = "button">주소추가</button>
 			<form action = "#" method = "post">
@@ -30,7 +28,6 @@
 					<tbody>
 						<%
 							ArrayList<TeacherAddr> list = (ArrayList<TeacherAddr>)request.getAttribute("teacherAddrList");
-						
 							for(TeacherAddr teacherAddr : list){
 						%>
 						<tr>
@@ -41,14 +38,9 @@
 						<%
 							}
 						%>
-						
 					</tbody>
 				</table>
 			</form>
-			
 		 </div>
-		
-		
-		
 	</body>
 </html>

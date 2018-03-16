@@ -71,7 +71,6 @@ public class TeacherAddrDao {
 				}
 			}
 		}
-
 		return list;
 	}
 	

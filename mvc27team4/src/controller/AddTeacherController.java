@@ -35,6 +35,7 @@ public class AddTeacherController extends HttpServlet {
 		this.teacherDao.insertTeacher(teacher);
 		
 		response.sendRedirect(request.getContextPath() + "/getTeacherList.jjdev");
+		
 	}
 
 }

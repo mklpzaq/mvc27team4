@@ -16,8 +16,6 @@ public class TeacherDao {
 	Teacher teacher = null;
 	int result = 0;
 	
-	
-	
 	public int deleteTeacher(int teacherNo) {	
 		
 		System.out.println("TeacherDao.deleteTeacher");
