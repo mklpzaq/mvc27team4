@@ -16,6 +16,8 @@ public class TeacherDao {
 	Teacher teacher = null;
 	int result = 0;
 	
+	
+	
 	public int deleteTeacher(int teacherNo) {	
 		
 		System.out.println("TeacherDao.deleteTeacher");
@@ -236,7 +238,9 @@ public class TeacherDao {
 
 	
 	/*
-	 * 
+	 * insertTeacher 매서드 설명
+	 * 1. 우선 insertTeacher 매서드를 호출하기 전에 addTeacher.jsp 화면에서
+	 *  사용자가 새로 가입할 ID와 PW를 입력하게 되는데,  
 	 * */
 	public int insertTeacher(Teacher teacher) {
 

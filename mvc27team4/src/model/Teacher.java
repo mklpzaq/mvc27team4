@@ -6,6 +6,7 @@ public class Teacher {
 	private String teacherId;
 	private String teacherPw;
 	
+	
 	public int getTeacherNo() {
 		return teacherNo;
 	}
