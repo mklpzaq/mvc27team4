@@ -13,10 +13,17 @@ import model.EmployeeDao;
 @WebServlet("/addEmployee.jjdev")
 public class AddEmployeeController extends HttpServlet {
 	private EmployeeDao employeedao;
+	
+	/**
+	 *	 
+	 */	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/employee/addEmployee.jsp").forward(request, response);
 	}
 	
+	/**
+	 * 
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("=============insert doPost =====================");
 		request.setCharacterEncoding("UTF-8");
