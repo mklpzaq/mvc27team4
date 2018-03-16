@@ -19,7 +19,7 @@
 				<th>STUDENT_PW</th>
 				<th>수정</th>
 				<th>삭제</th>
-				<th>ADDR STUDENT_ADDR</th>
+				<th>List STUDENT_ADDR</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -33,7 +33,7 @@
 				<td>****</td>
 				<td><a href="<%=request.getContextPath()%>/modifyStudent.jjdev?studentNo=<%=student.getStudentNo()%>">수정</a></td>
 				<td><a href="<%=request.getContextPath()%>/removeStudent.jjdev?studentNo=<%=student.getStudentNo()%>">삭제</a></td>
-				<td><a href="<%=request.getContextPath()%>/addrStudentAddr.jjdev?studentAddrNo=<%=student.getStudentNo()%>">주소추가</a></td>
+				<td><a href="<%=request.getContextPath()%>/getStudentAddrList.jjdev?studentNo=<%=student.getStudentNo()%>">주소리스트</a></td>
 			</tr>
 			<%
 				}

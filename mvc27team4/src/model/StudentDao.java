@@ -39,6 +39,9 @@ public class StudentDao {
 		return 0;
 	}
 	
+	/* 수정버튼을 눌렀을 때 
+	 * 
+	 */
 	public Student updateStudentOne(int studentNo) {
 		try {
 			connection = DriverDB.driverConnection();
@@ -68,6 +71,9 @@ public class StudentDao {
 		return student;
 	}
 	
+	/* 수정버튼을 눌러 값을 변경한 후 변경된 값을 업데이트하기 위한 메소드이다.
+	 * 쿼리실행값을 result에 담아 리턴한다.
+	 */
 	public int updateStudent(Student student) {
 		try {
 			connection = DriverDB.driverConnection();
@@ -106,6 +112,7 @@ public class StudentDao {
 			resultSet = statement.executeQuery();
 			while(resultSet.next()) {
 				student = new Student();
+				student.setStudentNo(resultSet.getInt("student_no"));
 				student.setStudentId(resultSet.getString("student_id"));
 				student.setStudentPw(resultSet.getString("student_pw"));
 				list.add(student);
