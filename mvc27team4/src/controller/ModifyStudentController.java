@@ -17,22 +17,25 @@ public class ModifyStudentController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		studentDao = new StudentDao();
-		String studentNoTemp = request.getParameter("studentNo");
-		int studentNo = Integer.parseInt(studentNoTemp);
-		Student student = studentDao.updateStudentOne(studentNo);
+		String studentNo = request.getParameter("studentNo");
+		Student student = studentDao.updateStudentOne(Integer.parseInt(studentNo));
 		request.setAttribute("student", student);
 		request.getRequestDispatcher("/WEB-INF/views/student/modifyStudentForm.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("ModifyStudentController /doPost");
 		request.setCharacterEncoding("UTF-8");
 		String studentNo = request.getParameter("studentNo");
 		String studentId = request.getParameter("studentId");
 		String studentPw = request.getParameter("studentPw");
+		System.out.println(studentNo+","+studentId+","+studentPw+"<==================================================");
+
 		Student student = new Student();
 		student.setStudentNo(Integer.parseInt(studentNo));
 		student.setStudentId(studentId);
 		student.setStudentPw(studentPw);
 		studentDao = new StudentDao();
 		studentDao.updateStudent(student);
+		response.sendRedirect(request.getContextPath()+"/getStudentList.jjdev");
 	}
 }

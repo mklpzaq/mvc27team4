@@ -19,12 +19,9 @@ public class GetStudentListController extends HttpServlet {
 	private StudentDao studentDao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("GetStudentListController / doGet");
-		//request.setCharacterEncoding("UTF-8");
-		
-		
+		request.setCharacterEncoding("UTF-8");
 		studentDao = new StudentDao();
 		ArrayList<Student> list = studentDao.selectStudent();
-		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("/WEB-INF/views/student/getStudentList.jsp").forward(request, response);
 	}

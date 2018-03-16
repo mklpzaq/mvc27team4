@@ -8,12 +8,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class StudentAddrDao {
-	StudentAddr studentAddr = null;
-	Connection connection = null;
-	PreparedStatement statement = null;
-	ResultSet resultSet = null;
 	
 	public ArrayList<StudentAddr> selectStudentAddr(int studentNo) {
+		StudentAddr studentAddr = null;
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
 		ArrayList<StudentAddr> list = new ArrayList<StudentAddr>();
 		try {
 			connection = DriverDB.driverConnection();

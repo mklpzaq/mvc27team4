@@ -8,19 +8,21 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class StudentDao {
-	
+	/*아래의 것들은 공유하지 않는다.
 	Connection connection = null;
 	PreparedStatement statement = null;
 	Student student = null;
-	String sql = null;
 	ArrayList<Student> list = null;
 	ResultSet resultSet = null;
-	int result = 0;
+	int result = 0;*/
 	
 	public int deleteStudent(int studentNo) {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		int result = 0;
 		try {
 			connection = DriverDB.driverConnection();
-			sql = "DELETE FROM student WHERE student_no=?";
+			String sql = "DELETE FROM student WHERE student_no=?";
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, studentNo);
 			result = statement.executeUpdate();
@@ -43,9 +45,13 @@ public class StudentDao {
 	 * 
 	 */
 	public Student updateStudentOne(int studentNo) {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		Student student = null;
+		ResultSet resultSet = null;
 		try {
 			connection = DriverDB.driverConnection();
-			sql = "SELECT * FROM student WHERE student_no=?";
+			String sql = "SELECT * FROM student WHERE student_no=?";
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, studentNo);
 			resultSet = statement.executeQuery();
@@ -75,9 +81,12 @@ public class StudentDao {
 	 * 쿼리실행값을 result에 담아 리턴한다.
 	 */
 	public int updateStudent(Student student) {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		int result = 0;
 		try {
 			connection = DriverDB.driverConnection();
-			sql = "UPDATE student SET student_id=?,student_pw=? WHERE student_no=?";
+			String sql = "UPDATE student SET student_id=?,student_pw=? WHERE student_no=?";
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, student.getStudentId());
 			statement.setString(2, student.getStudentPw());
@@ -104,10 +113,14 @@ public class StudentDao {
 	 * ->리스트화면에서 이 메소드를 실행하면 전체학생 조회값이 담긴 리턴값이 반환되어 화면에 보여진다.
 	 */
 	public ArrayList<Student> selectStudent(){
-		list = new ArrayList<Student>();
+		Connection connection = null;
+		PreparedStatement statement = null;
+		Student student = null;
+		ResultSet resultSet = null;
+		ArrayList<Student> list = new ArrayList<Student>();
 		try {
 			connection = DriverDB.driverConnection();
-			sql = "SELECT * FROM student";
+			String sql = "SELECT * FROM student";
 			statement = connection.prepareStatement(sql);
 			resultSet = statement.executeQuery();
 			while(resultSet.next()) {
@@ -137,10 +150,12 @@ public class StudentDao {
 	/* 화면에서 입력한 값을 DB에 세팅하기 위해 다음의 메소드를 선언한다.
 	 */
 	public int insertStudent(Student student) {
-		System.out.println("StudentDao.insertStudent");
+		Connection connection = null;
+		PreparedStatement statement = null;
+		int result = 0;
 		try {
 			connection = DriverDB.driverConnection();
-			sql = "INSERT INTO student(student_id, student_pw) VALUES(?, ?)";
+			String sql = "INSERT INTO student(student_id, student_pw) VALUES(?, ?)";
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, student.getStudentId());
 			statement.setString(2, student.getStudentPw());

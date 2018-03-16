@@ -21,6 +21,7 @@ public class GetStudentAddrListController extends HttpServlet {
 		StudentAddrDao studentAddrDao = new StudentAddrDao();
 		String studentNo = request.getParameter("studentNo");
 		ArrayList<StudentAddr> list = studentAddrDao.selectStudentAddr(Integer.parseInt(studentNo));
+		request.setAttribute("studentNo", studentNo);	
 		request.setAttribute("studentAddr", list);
 		request.getRequestDispatcher("/WEB-INF/views/student/getStudentAddrList.jsp").forward(request, response);
 	}

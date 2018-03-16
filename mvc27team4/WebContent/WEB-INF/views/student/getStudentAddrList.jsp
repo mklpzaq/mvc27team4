@@ -11,8 +11,8 @@
 	</head>
 	<body>
 		<div class="bs-example" data-example-id="simple-table">
-			<button type="button" id="insertAddrButton">주소추가</button>
-			<form action="/getStudentAddrList.jjdev" method="post">
+		<!-- <button type="button" id="insertAddrButton"><a href="<%=request.getContextPath()%>/addStudentAddr.jjdev">주소추가</a></button>  -->	
+			<form action="/getStudentAddrList.jjdev" method="post"> <!-- form없애기 수정중 -->
 				<table class="table">
 					<caption>Optional table caption.</caption>
 					<thead>
@@ -25,8 +25,10 @@
 					<tbody>
 						<%
 							ArrayList<StudentAddr> list = (ArrayList<StudentAddr>)request.getAttribute("studentAddr");
+							String studentNoTemp = (String)request.getAttribute("studentNo");
+							int studentNo = Integer.parseInt(studentNoTemp);
+							System.out.println(studentNo+"<<studentNo getStudentAddrList.jsp");
 							for(StudentAddr studentAddr : list){
-							
 						%>
 						<tr>
 							<th scope="row"><%=studentAddr.getStudentAddrNo() %></th>
@@ -38,6 +40,7 @@
 						%>
 					</tbody>
 				</table>
+				<a href="<%=request.getContextPath()%>/addStudentAddr.jjdev?studentNo=<%=studentNo%>">주소추가</a>
 			</form>
 		</div>
 	</body>
