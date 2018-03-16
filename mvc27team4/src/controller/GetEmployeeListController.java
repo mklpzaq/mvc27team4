@@ -17,13 +17,12 @@ import model.EmployeeDao;
 @WebServlet("/GetEmployeeList.jjdev")
 public class GetEmployeeListController extends HttpServlet {   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// request..
-		// EmployeeDao
-		// request�� �Ӽ��߰�
-		// forward
 		EmployeeDao edao = new EmployeeDao();
+		request.getParameter("send_Nom");
 		ArrayList<Employee> list = edao.selectEmployee();
 		request.setAttribute("selectemployee", list);
+		
+		
 		
 		request.getRequestDispatcher("/WEB-INF/views/employee/getEmployeelist.jsp").forward(request, response);
 		

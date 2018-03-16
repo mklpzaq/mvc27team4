@@ -25,8 +25,8 @@ public class AddEmployeeController extends HttpServlet {
 		String employeePwCheck = request.getParameter("employeePwCheck");
 		
 		Employee employee = new Employee();	
-			employee.setEmployeeId(employeeId);
-			employee.setEmployeePw(employeePw);
+		employee.setEmployeeId(employeeId);
+		employee.setEmployeePw(employeePw);
 		
 		this.employeedao = new EmployeeDao();
 		employeedao.insertEmployee(employee);

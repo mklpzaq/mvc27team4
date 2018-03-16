@@ -7,14 +7,13 @@
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			
 	<title></title>
 	</head>
 	<body>
 	
-		<div class="bs-example" data-example-id="simple-table">
-			<button id="insertAddrButton">주소추가</button>
-			<form action="" method="post">
-				<table class="table">
+		<div class="bs-example" data-example-id="simple-table">			
+			<table class="table">
 				<caption>Optional table caption.</caption>
 					<thead>
 						<tr>
@@ -25,8 +24,10 @@
 					</thead>
 					<tbody>
 						<%
+							System.out.println("==getEmployeeAddrList.jsp==");
 							ArrayList<EmployeeAddr> list = (ArrayList<EmployeeAddr>)request.getAttribute("addrlist");
-							System.out.println("getEmployeeAddrList.jsp/ list : " + list);
+							int employeeNo = (int)request.getAttribute("employeeNo");
+							System.out.println("employeeNo :" + employeeNo);					
 							for(EmployeeAddr employeeAddr : list) {
 						%>
 						
@@ -41,6 +42,7 @@
 											
 					</tbody>
 				</table>
+		<button id="insertAddrButton" type="button"><a href="<%= request.getContextPath()%>/addEmployeeAddr.jjdev?employeeNo=<%= employeeNo%>">주소추가</a></button>
 			</form>
 		</div>	
 		

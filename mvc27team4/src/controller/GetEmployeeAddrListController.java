@@ -26,7 +26,8 @@ public class GetEmployeeAddrListController extends HttpServlet {
 		EmployeeAddrDao adao = new EmployeeAddrDao();
 		ArrayList<EmployeeAddr> list = adao.selectEmployeeAddr(employeeNo);
 		System.out.println("GetEmployeeAddrListController / list : " + list);
-		request.setAttribute("addrlist", list);		
+		request.setAttribute("addrlist", list);	
+		request.setAttribute("employeeNo", employeeNo);
 	
 		request.getRequestDispatcher("/WEB-INF/views/employee/getEmployeeAddrList.jsp").forward(request, response);
 		
