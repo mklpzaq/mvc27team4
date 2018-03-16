@@ -39,7 +39,7 @@
 		          <td><%= employee.getEmployeeId() %></td>
 		          <td><a href="<%=request.getContextPath()%>/ModifyEmployee.jjdev?send_Nom=<%=employee.getEmployeeNom()%>">수정</a></td>
 		          <td><a href="">삭제</a></td>
-		          <td><a href="">주소추가</a></td>		         
+		          <td><a href="<%=request.getContextPath()%>/getEmployeeAddrList.jjdev?send_Nom=<%=employee.getEmployeeNom()%>">주소추가</a></td>		         
 		        </tr>		       
 	      </tbody>
 	    </table>
