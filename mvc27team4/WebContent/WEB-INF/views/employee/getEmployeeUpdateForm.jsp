@@ -10,6 +10,13 @@
 <title>Update form</title>
 </head>
 <body>
+	<!-- 
+		ModifyEmployeeController에서 한명의 직원 값을 받았고 넘버로 기준으로 아이디, 비밀번호를 수정할 
+		입력Form을 만들어 본다. 
+		우리는 ModifyEmployeeController 의 setAttribute로 값을 넣어놨기 때문에 getAttribute로 그값을 받아와서 
+		화면에 뿌려주면된다. 
+	 -->
+	
 <%
 	Employee employee = (Employee)request.getAttribute("oneEmployee");
 	System.out.println("getEmployeeUpdateForm.jsp 들어옴");

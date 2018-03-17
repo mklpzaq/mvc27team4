@@ -12,7 +12,11 @@
 	<title></title>
 	</head>
 	<body>
-	
+	<!-- 
+		GetEmployeeAddrListController 에서 처리된것을 화면에 보여줘야 한다.
+		setAttribute로 값을 담아 놨기 때문에 화면에서는 getAttribute로 값을 받아와서 화면에 뿌려준다.
+		주소를 추가 할때는 한명의 직원에 해당하는 주소를 찍어 내야 한다. 그 직원이 가지고 있는 넘버로 get방식으로 넘겨준다.
+	 -->
 		<div class="bs-example" data-example-id="simple-table">			
 			<table class="table">
 				<caption>Optional table caption.</caption>

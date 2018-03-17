@@ -13,6 +13,13 @@
 
 <body>
 	<h1>Employee List</h1>
+	<!-- 
+		GetEmployeeListController 클래스에서 setAttribute로 담긴 list 값으로 
+		회원전체 리스트를 보여주는 화면 입력창을 보여준다. 
+		전체회원 이여서 반복문 for안에 테이블을 만들고 list에 담긴 회원 만큼 반복시킨다.
+		또한 수정, 삭제 , 주소추가를 하기위해 get방식으로 직원에 해당하는 no값을 넘깁니다.		 
+	 -->
+	
 	<%
 		EmployeeDao employeedao = new EmployeeDao();
 		ArrayList<Employee> list = (ArrayList<Employee>)request.getAttribute("selectemployee");

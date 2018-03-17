@@ -12,7 +12,11 @@ public class EmployeeAddrDao {
 	PreparedStatement pstmt = null;
 	ResultSet result = null;
 	
-	
+	/**
+	 * 회원 넘버에 해당하는 회원 주소값을 보여주기위한 메서드이다. 
+	 * 	전체리스트에서 한명에 해당하는 int형으로된 넘버값을 받았기 때문에 메서드에 변수는 int로 섰다.
+	 * 	한명에 해당되는 값(list)를 리턴한다. 
+	 */
 	public ArrayList<EmployeeAddr> selectEmployeeAddr(int employeeNo) {
 		EmployeeAddr employeeAddr = null;
 		ArrayList<EmployeeAddr> list = null;

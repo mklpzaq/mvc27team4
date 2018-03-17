@@ -8,6 +8,10 @@
 </head>
 	
 <body>
+	<!-- 
+		주소를 추가하기 위해 주소 추가 폼을 만든다. 
+	 -->
+
 		<h3>주소추가</h3>
 		<form id="employeeAddrForm" action="<%= request.getContextPath() %>/addEmployeeAddr.jjdev" method="post">			
 			<input type="text" name = "address">
