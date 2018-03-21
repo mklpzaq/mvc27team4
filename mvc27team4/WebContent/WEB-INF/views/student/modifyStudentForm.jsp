@@ -26,7 +26,7 @@
 				<td><input type="text" name="studentPw" value="<%=student.getStudentPw()%>"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><button type="button">수정버튼</button></td>
+				<td colspan="2"><button type="submit">수정버튼</button></td>
 			</tr>
 		</table>
 	</form>

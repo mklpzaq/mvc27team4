@@ -28,7 +28,6 @@ public class ModifyStudentController extends HttpServlet {
 		String studentNo = request.getParameter("studentNo");
 		String studentId = request.getParameter("studentId");
 		String studentPw = request.getParameter("studentPw");
-		System.out.println(studentNo+","+studentId+","+studentPw+"<==================================================");
 
 		Student student = new Student();
 		student.setStudentNo(Integer.parseInt(studentNo));

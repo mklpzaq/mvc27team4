@@ -43,9 +43,27 @@ public class StudentAddrDao {
 		return list;
 	}
 	
-	public int insertStudentAddr(StudentAddr studentAddr) {
-		int result=0;
-
-		return result;
+	public int insertStudentAddr(String address) {
+		Connection connection = null;
+		PreparedStatement statement = null;
+		int result = 0;
+		try {
+			connection = DriverDB.driverConnection();
+			String sql = "INSERT INTO student_addr(address) VALUES(?)";
+			statement = connection.prepareStatement(sql);
+			statement.setString(1, address);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				statement.close();
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+			return result;
 	}
 }

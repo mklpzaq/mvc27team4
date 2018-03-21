@@ -12,7 +12,6 @@
 	<body>
 		<div class="bs-example" data-example-id="simple-table">
 		<!-- <button type="button" id="insertAddrButton"><a href="<%=request.getContextPath()%>/addStudentAddr.jjdev">주소추가</a></button>  -->	
-			<form action="/getStudentAddrList.jjdev" method="post"> <!-- form없애기 수정중 -->
 				<table class="table">
 					<caption>Optional table caption.</caption>
 					<thead>
@@ -40,8 +39,7 @@
 						%>
 					</tbody>
 				</table>
-				<a href="<%=request.getContextPath()%>/addStudentAddr.jjdev?studentNo=<%=studentNo%>">주소추가</a>
-			</form>
+				<button type="button" id="insertAddrButton"><a href="<%=request.getContextPath()%>/addStudentAddr.jjdev?studentNo=<%=studentNo%>">주소추가</a></button>
 		</div>
 	</body>
 </html>
