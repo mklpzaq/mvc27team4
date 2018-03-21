@@ -11,8 +11,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
 	<body>
-		<h1>GuestList</h1>
-		<table board = "1">
+		<h1>Teacher List</h1>
+		<table border = "1">
 			<thead>
 				<tr>
 					<th>teacher_no</th>

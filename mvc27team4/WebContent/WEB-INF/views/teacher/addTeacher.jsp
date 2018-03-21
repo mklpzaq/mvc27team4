@@ -39,21 +39,21 @@
 				<div class="form-group">
 					<label for="teacherId" class="col-sm-3 control-label">teacher_id</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control" id="teacherId" name = "teacherId" placeholder="ID">
+						<input type="text" class="col-sm-offset-1 form-control" id="teacherId" name = "teacherId" placeholder="ID">
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label for="teacherPw" class="col-sm-3 control-label">teacher_pw</label>
 					<div class="col-sm-9">
-						<input type="password" class="form-control" id="teacherPw" name = "teacherPw" placeholder="PW">
+						<input type="password" class="col-sm-offset-1 form-control" id="teacherPw" name = "teacherPw" placeholder="PW">
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label for="teacherPwCheck" class="col-sm-3 control-label">teacher_pw 확인</label>
 					<div class="col-sm-9">
-						<input type="password" class="form-control" id="teacherPwCheck" name = "teacherPwCheck" placeholder="PW CHECK">
+						<input type="password" class="col-sm-offset-1 form-control" id="teacherPwCheck" name = "teacherPwCheck" placeholder="PW CHECK">
 					</div>
 				</div>
 				
