@@ -6,7 +6,6 @@ public class Teacher {
 	private String teacherId;
 	private String teacherPw;
 	
-	
 	public int getTeacherNo() {
 		return teacherNo;
 	}
@@ -25,7 +24,6 @@ public class Teacher {
 	public void setTeacherPw(String teacherPw) {
 		this.teacherPw = teacherPw;
 	}
-	
 	@Override
 	public String toString() {
 		return "Teacher [teacherNo=" + teacherNo + ", teacherId=" + teacherId + ", teacherPw=" + teacherPw + "]";
