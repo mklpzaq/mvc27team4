@@ -20,8 +20,8 @@ public class AddTeacherAddrController extends HttpServlet {
 		String teacherNo = request.getParameter("teacherNo");
 		System.out.println("teahcerNo : " + teacherNo);
 		request.setAttribute("teacherNo", teacherNo);
-		
-		request.getRequestDispatcher("/WEB-INF/views/teacher/addTeacherAddrForm.jsp").forward(request, response);
+		///
+		request.getRequestDispatcher("WEB-INF/views/teacher/addTeacherAddrForm.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
