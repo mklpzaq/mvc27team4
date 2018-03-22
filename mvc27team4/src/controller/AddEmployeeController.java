@@ -46,7 +46,7 @@ public class AddEmployeeController extends HttpServlet {
 		
 		this.employeedao = new EmployeeDao();
 		employeedao.insertEmployee(employee);
-		response.sendRedirect(request.getContextPath() + "/GetEmployeeList.jjdev");			
+		response.sendRedirect(request.getContextPath() + "/getEmployeeList.jjdev");			
 	}
 
 }

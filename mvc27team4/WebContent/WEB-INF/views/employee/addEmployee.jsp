@@ -1,5 +1,6 @@
 <!-- [mvc27team4] 이준희 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,7 +62,7 @@
 	<br>
 	<h1 style="text-align: center;">Employee Insert</h1>			
 		<div class="col-md-4"></div>
-		<form class="form-horizontal" method="post" action="<%=request.getContextPath()%>/addEmployee.jjdev" id="insertEmployee">
+		<form class="form-horizontal" method="post" action="${pageContext.request.contextPath}/addEmployee.jjdev" id="insertEmployee">
 			  <div class="form-group">
 			    <label for="exampleInputName2" class="control-label">employee_id</label>
 			    <input type="text" class="employeeId" placeholder="employeeId" name="employeeId">

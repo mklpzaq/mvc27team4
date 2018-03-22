@@ -1,7 +1,6 @@
 <!-- [mvc27team4] 이준희 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>
-<%@ page import="model.EmployeeAddr" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -28,26 +27,18 @@
 						</tr>
 					</thead>
 					<tbody>
-						<%
-							System.out.println("==getEmployeeAddrList.jsp==");
-							ArrayList<EmployeeAddr> list = (ArrayList<EmployeeAddr>)request.getAttribute("addrlist");
-							int employeeNo = (int)request.getAttribute("employeeNo");
-							System.out.println("employeeNo :" + employeeNo);					
-							for(EmployeeAddr employeeAddr : list) {
-						%>
-						
-						<tr>
-							<th scope="row"><%= employeeAddr.getEmployeeAddrNo()%></th>
-							<td><%= employeeAddr.getEmployeeNo()%></td>
-							<td><%= employeeAddr.getAddress()%></td>						
-						</tr>
-						<%
-						}
-						%>
+						${list} 
+						<c:forEach var="employeeAddr" items="${addrlist}">
+							<tr>
+								<th scope="row">${employeeAddr.employeeAddrNo}</th>
+								<td>${employeeAddr.employeeNo}</td>
+								<td>${employeeAddr.address()}</td>						
+							</tr>
+						</c:forEach>				
 											
 					</tbody>
 				</table>
-		<button id="insertAddrButton" type="button"><a href="<%= request.getContextPath()%>/addEmployeeAddr.jjdev?employeeNo=<%= employeeNo%>">주소추가</a></button>
+		<button id="insertAddrButton" type="button"><a href="${pageContext.request.contextPath}/addEmployeeAddr.jjdev?employeeNo= ${employeeNo}">주소추가</a></button>
 			</form>
 		</div>	
 		

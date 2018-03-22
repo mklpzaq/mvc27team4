@@ -1,6 +1,6 @@
 <!-- [mvc27team4] 이준희 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="model.Employee" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,33 +15,27 @@
 		입력Form을 만들어 본다. 
 		우리는 ModifyEmployeeController 의 setAttribute로 값을 넣어놨기 때문에 getAttribute로 그값을 받아와서 
 		화면에 뿌려주면된다. 
-	 -->
+	 -->	
+	<br>
+	<br>
 	
-<%
-	Employee employee = (Employee)request.getAttribute("oneEmployee");
-	System.out.println("getEmployeeUpdateForm.jsp 들어옴");
-	employee.toString();
-%>
-
-	<br>
-	<br>
-<form class="form-horizontal" action="<%=request.getContextPath()%>/ModifyEmployee.jjdev" method="post">
+<form class="form-horizontal" action="${pageContext.request.contextPath}/ModifyEmployee.jjdev" method="post">
 	<div class="form-group">
 		<label for="inputEmployeeNo3" class="col-sm-2 control-label">EmployeeNo</label>
 	<div class="col-sm-10">
-		<input type="text" class="form-control" id="EmployeeNo3" name="EmployeeNo" value="<%= employee.getEmployeeNom()%>" readonly>
+		<input type="text" class="form-control" id="EmployeeNo3" name="EmployeeNo" value="${oneEmployee.employeeNom}" readonly>
 	</div>
 	</div>
 	<div class="form-group">
 		<label for="inputEmployeeId3" class="col-sm-2 control-label">EmployeeId</label>
 	<div class="col-sm-10">
-		<input type="text" class="form-control" id="EmployeeId3" name="EmployeeId" value="<%= employee.getEmployeeId()%>">
+		<input type="text" class="form-control" id="EmployeeId3" name="EmployeeId" value="${oneEmployee.employeeId}">
 	</div>
 	</div>
 	<div class="form-group">
 		<label for="inputEmployeePw3" class="col-sm-2 control-label">EmployeePw</label>
 	<div class="col-sm-10">
-		<input type="password" class="form-control" id="EmployeePw3" name="EmployeePw" value="<%= employee.getEmployeePw()%>">
+		<input type="password" class="form-control" id="EmployeePw3" name="EmployeePw" value="${oneEmployee.employeePw}">
 	</div>
 	</div>
 	<div class="form-group">

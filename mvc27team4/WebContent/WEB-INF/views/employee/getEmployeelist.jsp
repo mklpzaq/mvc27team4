@@ -1,8 +1,6 @@
 <!-- [mvc27team4] 이준희 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@ page import= "model.Employee" %>
-<%@ page import= "model.EmployeeDao" %>
-<%@ page import = "java.util.ArrayList" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,14 +17,10 @@
 		전체회원 이여서 반복문 for안에 테이블을 만들고 list에 담긴 회원 만큼 반복시킨다.
 		또한 수정, 삭제 , 주소추가를 하기위해 get방식으로 직원에 해당하는 no값을 넘깁니다.		 
 	 -->
+			
+	${list}
 	
-	<%
-		EmployeeDao employeedao = new EmployeeDao();
-		ArrayList<Employee> list = (ArrayList<Employee>)request.getAttribute("selectemployee");
-	%>
-	<%
-		for(Employee employee : list) {			
-	%>
+	<c:forEach var="employee" items="${selectemployee}" >
 		<div class="bs-example" data-example-id="simple-table">
 		 <table class="table">
 		      <caption>Optional table caption.</caption>
@@ -42,18 +36,19 @@
 		      </thead>
 		      <tbody>
 		        <tr>
-		          <th scope="row"><%= employee.getEmployeeNom() %></th>		        
-		          <td><%= employee.getEmployeeId() %></td>
-		          <td><a href="<%=request.getContextPath()%>/ModifyEmployee.jjdev?send_Nom=<%=employee.getEmployeeNom()%>">수정</a></td>
+		          <th scope="row">${employee.employeeNom}</th>		        
+		          <td>${employee.employeeId}</td>
+		          <td><a href="${pageContext.request.contextPath}/ModifyEmployee.jjdev?send_Nom=${employee.employeeNom}">수정</a></td>
 		          <td><a href="">삭제</a></td>
-		          <td><a href="<%=request.getContextPath()%>/getEmployeeAddrList.jjdev?send_Nom=<%=employee.getEmployeeNom()%>">주소추가</a></td>		         
+		          <td><a href="${pageContext.request.contextPath}/getEmployeeAddrList.jjdev?send_Nom=${employee.employeeNom}">주소추가</a></td>		         
 		        </tr>		       
 	      </tbody>
 	    </table>
 	  </div>	
+	</c:forEach>
+
+		
 	
-	<% 
-	}
-	%>
+	
 </body>
 </html>

@@ -1,5 +1,6 @@
 <!-- [mvc27team4] 이준희 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 	 -->
 
 		<h3>주소추가</h3>
-		<form id="employeeAddrForm" action="<%= request.getContextPath() %>/addEmployeeAddr.jjdev" method="post">			
+		<form id="employeeAddrForm" action="${pageContext.request.contextPath}/addEmployeeAddr.jjdev" method="post">			
 			<input type="text" name = "address">
 			<button id="employeeAddrButton" type="sunmit">주소추가</button>					
 		</form>
