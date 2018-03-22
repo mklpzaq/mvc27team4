@@ -30,16 +30,16 @@
 							for(StudentAddr studentAddr : list){
 						%>
 						<tr>
-							<th scope="row"><%=studentAddr.getStudentAddrNo() %></th>
-							<td><%=studentAddr.getStudentNo() %></td>
-							<td><%=studentAddr.getAddress() %></td>
+							<th scope="row">${studentAddr.studentAddrNo}</th>
+							<td>${studentAddr.studentNo}</td>
+							<td>${studentAddr.address}</td>
 						</tr>
 						<%
 							}
 						%>
 					</tbody>
 				</table>
-				<button type="button" id="insertAddrButton"><a href="<%=request.getContextPath()%>/addStudentAddr.jjdev?studentNo=<%=studentNo%>">주소추가</a></button>
+				<button type="button" id="insertAddrButton"><a href="${pageContext.request.contextPath}/addStudentAddr.jjdev?studentNo=${studentNo}">주소추가</a></button>
 		</div>
 	</body>
 </html>

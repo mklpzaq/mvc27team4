@@ -1,8 +1,6 @@
 <!-- [mvc27team4] 방민영 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import = "model.StudentDao" %>
-<%@ page import = "model.Student" %>
-<%@ page import = "java.util.ArrayList" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +21,23 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
+			<c:forEach var="student" items="${list}">
+				<tr>
+					<td>${student.studentNo}</td>
+					<td>${student.studentId}</td>
+					<td>****</td>
+					<td><a href="${pageContext.request.contextPath}/modifyStudent.jjdev?studentNo=${student.studentNo}">수정</a></td>
+					<td><a href="${pageContext.request.contextPath}/removeStudent.jjdev?studentNo=${student.studentNo}">삭제</a></td>
+					<td><a href="${pageContext.request.contextPath}/getStudentAddrList.jjdev?studentNo=${student.studentNo}">주소리스트</a></td>
+				</tr>
+			</c:forEach>
+			
+			
+			
+			
+			
+			
+			<%-- <tr>
 			<%
 				ArrayList<Student> list = (ArrayList<Student>)request.getAttribute("list");
 				for(Student student : list) {
@@ -37,7 +51,7 @@
 			</tr>
 			<%
 				}
-			%>
+			%> --%>
 		</tbody>
 	</table>
 </body>

@@ -43,15 +43,17 @@ public class StudentAddrDao {
 		return list;
 	}
 	
-	public int insertStudentAddr(String address) {
+	public int insertStudentAddr(StudentAddr studentAddr) {
+		studentAddr = new StudentAddr();
 		Connection connection = null;
 		PreparedStatement statement = null;
 		int result = 0;
 		try {
 			connection = DriverDB.driverConnection();
-			String sql = "INSERT INTO student_addr(address) VALUES(?)";
+			String sql = "INSERT INTO student_addr(student_no, address) VALUES(?,?)";
 			statement = connection.prepareStatement(sql);
-			statement.setString(1, address);
+			statement.setInt(1, studentAddr.getStudentNo());
+			statement.setString(2, studentAddr.getAddress());
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

@@ -40,7 +40,7 @@
 			<div class="panel panel-default">
 				<div class="panel-body form-horizontal">
 				
-					<form action="<%=request.getContextPath() %>/addStudent.jjdev" id="insertStudentForm" method="post">
+					<form action="${pageContext.request.contextPath}/addStudent.jjdev" id="insertStudentForm" method="post">
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="studentId">student_id</label>
 							<div class="col-sm-10">

@@ -11,19 +11,19 @@
 	<%
 		Student student = (Student)request.getAttribute("student");
 	%>
-	<form action="<%=request.getContextPath() %>/modifyStudent.jjdev" method="post">
+	<form action="${pageContext.request.contextPath}/modifyStudent.jjdev" method="post">
 		<table border="1">
 			<tr>
 				<td>STUDENT_NO</td>
-				<td><input type="text" name="studentNo" value="<%=student.getStudentNo()%>" readonly></td>
+				<td><input type="text" name="studentNo" value="${student.studentNo}" readonly></td>
 			</tr>
 			<tr>
 				<td>STUDENT_ID</td>
-				<td><input type="text" name="studentId" value="<%=student.getStudentId()%>"></td>
+				<td><input type="text" name="studentId" value="${student.studentId}"></td>
 			</tr>
 			<tr>
 				<td>STUDENT_PW</td>
-				<td><input type="text" name="studentPw" value="<%=student.getStudentPw()%>"></td>
+				<td><input type="text" name="studentPw" value="${student.studentPw}"></td>
 			</tr>
 			<tr>
 				<td colspan="2"><button type="submit">수정버튼</button></td>

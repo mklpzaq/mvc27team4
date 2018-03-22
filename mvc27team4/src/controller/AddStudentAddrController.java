@@ -17,6 +17,7 @@ public class AddStudentAddrController extends HttpServlet {
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		request.setAttribute("studentNo", request.getParameter("studentNo"));
+		System.out.println(request.getParameter("studentNo")+"<<request.getParameter(\"studentNo\") AddStudentAddrController.java");
 		request.getRequestDispatcher("WEB-INF/views/student/addStudentAddrFrom.jsp").forward(request, response);
 
 	}
@@ -24,9 +25,13 @@ public class AddStudentAddrController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("doPost로 넘어왔음. AddStudentAddrController.java 03");
 		String address = request.getParameter("address");
-		System.out.println(address+"<<address AddStudentAddrController.java 04");
+		String studentNoTemp = request.getParameter("studentNo");
+		int studentNo = Integer.parseInt("studentNoTemp");
+		StudentAddr studentAddr = new StudentAddr();
+		studentAddr.setStudentNo(studentNo);
+		studentAddr.setAddress(address);
 		StudentAddrDao addrDao = new StudentAddrDao();
-		addrDao.insertStudentAddr(address);
+		addrDao.insertStudentAddr(studentAddr);
 		response.sendRedirect(request.getContextPath()+"/getStudentAddrList.jjdev");
 		
 		
