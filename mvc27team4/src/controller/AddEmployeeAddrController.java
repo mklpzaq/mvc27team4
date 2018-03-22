@@ -2,12 +2,15 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.EmployeeAddr;
 import model.EmployeeAddrDao;
 
 @WebServlet("/addEmployeeAddr.jjdev")
@@ -23,6 +26,7 @@ public class AddEmployeeAddrController extends HttpServlet {
 		System.out.println("=========" + temp);
 		int employeeNo = Integer.parseInt(temp);
 		System.out.println("employeeNo :" + employeeNo);
+		request.setAttribute("employeeNo", employeeNo);
 		
 		request.getRequestDispatcher("WEB-INF/views/employee/addEmployeeAddrForm.jsp").forward(request, response);
 	}
@@ -32,8 +36,29 @@ public class AddEmployeeAddrController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 System.out.println("==AddEmployeeAddrController / doPost==");
+		 String temp = request.getParameter("employeeNo");
+		 int employeeNo = Integer.parseInt(temp);		
 		 String address = request.getParameter("address");
 		 System.out.println("address :" + address);
+		 
+		 EmployeeAddr employeeAddr = new EmployeeAddr();
+		 employeeAddr.setEmployeeNo(employeeNo);
+		 employeeAddr.setAddress(address);
+		 EmployeeAddrDao employeeAddrDao = new EmployeeAddrDao();
+		 int result = employeeAddrDao.insertEmployeeAddr(employeeAddr);
+		 System.out.println("result : " + result);
+		 
+		 if(result == 2) {
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('address 입력 갯수 5개를 초과하셨습니다.');");
+				out.println("location.href='./getEmployeeAddrList.jjdev?employeeNo=" + employeeNo + "';");
+				out.println("</script>");
+				out.close();
+				return ;
+			}
+			response.sendRedirect(request.getContextPath() + "/getEmployeeAddrList.jjdev?employeeNo=" + employeeNo);
 	}
 
 }

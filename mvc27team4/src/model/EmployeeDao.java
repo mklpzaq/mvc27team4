@@ -15,6 +15,27 @@ public class EmployeeDao {
 	ResultSet result = null;
 	int intReturn = 0;
 	
+	
+	public int deleteEmployee(int employeeNom) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int result = 0;
+		System.out.println("deleteEmployee실행");
+		System.out.println("employeeNom :" + employeeNom);
+		try {
+			connection = DriverDB.driverConnection();
+			String sql = "DELETE FROM employee WHERE employee_no = ?";
+			preparedStatement = connection.prepareStatement(sql);			
+			preparedStatement.setInt(1, employeeNom);
+			result = preparedStatement.executeUpdate();
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {		
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	/**
 	 * 수정화면에서 수정하고 싶은 값을 입력후 넘긴값을 데이터베이스에 저장하고 수정하는 쿼리를 작성한다.
 	 * 수정된 값을 다시 대입연산자를 사용하여  intReturn에 값을 대입하고 수정된값 intReturn를 리턴시킨다. 

@@ -29,9 +29,7 @@ public class GetEmployeeListController extends HttpServlet {
 		EmployeeDao edao = new EmployeeDao();
 		request.getParameter("send_Nom");
 		ArrayList<Employee> list = edao.selectEmployee();
-		request.setAttribute("selectemployee", list);
-		
-		
+		request.setAttribute("selectemployee", list);		
 		
 		request.getRequestDispatcher("/WEB-INF/views/employee/getEmployeelist.jsp").forward(request, response);
 		

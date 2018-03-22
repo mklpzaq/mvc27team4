@@ -39,7 +39,7 @@
 		          <th scope="row">${employee.employeeNom}</th>		        
 		          <td>${employee.employeeId}</td>
 		          <td><a href="${pageContext.request.contextPath}/ModifyEmployee.jjdev?send_Nom=${employee.employeeNom}">수정</a></td>
-		          <td><a href="">삭제</a></td>
+		          <td><a href="${pageContext.request.contextPath}/removeEmployee.jjdev?send_Nom=${employee.employeeNom}">삭제</a></td>
 		          <td><a href="${pageContext.request.contextPath}/getEmployeeAddrList.jjdev?send_Nom=${employee.employeeNom}">주소추가</a></td>		         
 		        </tr>		       
 	      </tbody>
