@@ -7,6 +7,68 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class TeacherAddrDao {
+	/* 
+	 * 주소록에서 체크박스로 체크된 주소의 teacher_addr_no 값을 받아와
+	 * String형 배열 teacherAddrNoArr에 저장시키고 
+	 * deleteTeacherAddr()의 매개변수로 넘겨준다.
+	 * deleteTeacherAddr() 매서드가 하는 일은 매개변수로 넘겨받은  String형 배열에 저장된 teacher_addr_no값을 읽어
+	 * SQL DELETE문을 통해 teacher_addr_no에 해당하는 레코드를 삭제하는 일이다.
+	 * for-each문을 통해 배열은 순회하면서 teacher_addr_no값을 DELETE문 ?(물음표)에 순차적으로 대입하면서,
+	 * DELETE를 하는 작업을 수행한다.
+	 * 리턴 되는 result값은 executeUpdate()가 성공했는지의 여부를 나타낸다. 성공하면 1, 실패하면 0을 리턴한다.
+	 *  */
+	public int deleteTeacherAddr(String[] teacherAddrNoArr) {
+		System.out.println("deleteTeacherAddr() TeacherAddrDao.java");
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int result = 0;
+		System.out.println("TeacherAddrDao.deleteTeacherAddr()");
+		System.out.println("teacherAddrNoArr : " + teacherAddrNoArr);
+		try {
+			connection = DriverDB.driverConnection();
+			int teacherAddrNo = 0;
+			for(String teacherAddrNoTemp : teacherAddrNoArr) {
+				preparedStatement = connection.prepareStatement("DELETE FROM teacher_addr WHERE teacher_addr_no = ?");
+				System.out.println("teacherAddrNoTemp : " + teacherAddrNoTemp);
+				teacherAddrNo = Integer.parseInt(teacherAddrNoTemp);
+				preparedStatement.setInt(1, teacherAddrNo);
+				result = preparedStatement.executeUpdate();
+			}
+		}catch(ClassNotFoundException exception) {
+			exception.printStackTrace();
+			System.out.println(exception.getMessage());
+			System.out.println("TeacherAddrDao.deleteTeacherAddr()/ ClassNotFoundException");
+		}catch(SQLException exception) {
+			exception.printStackTrace();
+			System.out.println(exception.getMessage());
+			System.out.println("TeacherAddrDao.deleteTeacherAddr() / SQLException");
+		}finally {
+			if(preparedStatement != null) {
+				try {
+					preparedStatement.close();
+					preparedStatement = null;
+				}catch(SQLException exception) {
+					exception.printStackTrace();
+					System.out.println(exception.getMessage());
+					System.out.println("TeacherAddrDao.deleteTeacherAddr() / preparedStatement.close() / SQLException");
+				}
+			}
+			if(connection != null) {
+				try {
+					connection.close();
+					connection = null;
+				}catch(SQLException exception) {
+					exception.printStackTrace();
+					System.out.println(exception.getMessage());
+					System.out.println("TeacherAddrDao.deleteTeacherAddr() / connection.close() / SQLException");
+				}
+			}
+		}
+		return result;
+	} 
+	
+	
+	
 	/*
 	 * selectTeacherAddr() 매서드는,
 	 * Teacher객체의 teacherNo를 매개변수로 받아서 
