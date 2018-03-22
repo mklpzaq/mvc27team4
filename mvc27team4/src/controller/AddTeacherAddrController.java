@@ -17,6 +17,10 @@ import model.TeacherAddrDao;
 public class AddTeacherAddrController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("doGet AddTeacherAddrController.java");
+		String teacherNo = request.getParameter("teacherNo");
+		System.out.println("teahcerNo : " + teacherNo);
+		request.setAttribute("teacherNo", teacherNo);
+		
 		request.getRequestDispatcher("/WEB-INF/views/teacher/addTeacherAddrForm.jsp").forward(request, response);
 	}
 

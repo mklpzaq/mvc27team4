@@ -1,6 +1,6 @@
 <!-- [mvc27team4] 이춘림  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import = "model.Teacher" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,24 +18,20 @@
 	</script>
 </head>
 <body>
-	<%
-		request.setCharacterEncoding("UTF-8");
-		Teacher teacher = (Teacher)request.getAttribute("oneTeacher");
-	%>
 	<h3>UPDATE FORM</h3>
-	<form id = "updateForm" action="<%= request.getContextPath() %>/modifyTeacher.jjdev" method="post">
+	<form id = "updateForm" action="${pageContext.request.contextPath}/modifyTeacher.jjdev" method="post">
 		<table border="1">
 		<tr>
 			<td>teacherNo</td>
-			<td><input id = "inputTeacherNo" type="text" name="teacherNo" size="20" value="<%= teacher.getTeacherNo() %>" readonly></td>
+			<td><input id = "inputTeacherNo" type="text" name="teacherNo" size="20" value="${oneTeacher.teacherNo}" readonly></td>
 		<tr>
 		<tr>
 			<td>teacherId</td>
-			<td><input id = "inputTeacherId" type="text" name="teacherId" size="20" value="<%= teacher.getTeacherId() %>"></td>
+			<td><input id = "inputTeacherId" type="text" name="teacherId" size="20" value="${oneTeacher.teacherId}"></td>
 		<tr>
 		<tr>
 			<td>teacherPw</td>
-			<td><input id = "inputTeacherPw" type="text" name="teacherPw" size="20" value="<%= teacher.getTeacherPw() %>"></td>
+			<td><input id = "inputTeacherPw" type="text" name="teacherPw" size="20" value="${oneTeacher.teacherPw}"></td>
 		<tr>
 		<tr>
 			<td colspan = "2"><button id = "updateButton" type="button">수정 완료</button></td>

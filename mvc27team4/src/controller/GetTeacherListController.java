@@ -15,10 +15,11 @@ import java.util.ArrayList;
 public class GetTeacherListController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("doGet GetTeacherListController");
 		request.setCharacterEncoding("UTF-8");
 		TeacherDao teacherDao = new TeacherDao();
 		ArrayList<Teacher> list = teacherDao.selectTeacher();
-
+		System.out.println("list : " + list);
 		
 		request.setAttribute("selectTeacher", list);
 		

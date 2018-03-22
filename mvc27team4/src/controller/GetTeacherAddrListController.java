@@ -23,6 +23,7 @@ public class GetTeacherAddrListController extends HttpServlet {
 		ArrayList<TeacherAddr> list = teacherAddrDao.selectTeacherAddr(teacherNo);
 		System.out.println("list : " + list);
 		request.setAttribute("teacherAddrList", list);
+		request.setAttribute("teacherNo", teacherNo);
 		
 		
 		request.getRequestDispatcher("/WEB-INF/views/teacher/getTeacherAddrList.jsp").forward(request, response);

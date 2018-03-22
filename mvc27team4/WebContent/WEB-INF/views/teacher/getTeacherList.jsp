@@ -1,7 +1,6 @@
 <!-- [mvc27team4] 이춘림  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import = "java.util.ArrayList" %>
-<%@ page import = "model.Teacher" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,22 +23,16 @@
 				</tr>
 			</thead>
 			<tbody>
-			<%
-				ArrayList<Teacher> list = (ArrayList<Teacher>)request.getAttribute("selectTeacher");
-				for(Teacher teacher : list){
-			%>
+				<c:forEach var="teacher" items="${selectTeacher}">
 					<tr>
-						<td><%= teacher.getTeacherNo() %></td>
-						<td><%= teacher.getTeacherId() %></td>
-						<td><%= teacher.getTeacherPw() %></td>
-						<td><a href="<%=request.getContextPath()%>/modifyTeacher.jjdev?teacherNo=<%=teacher.getTeacherNo()%>">수정</a></td><!-- 티쳐의 넘버가 필요하다. -->
-						<td><a href="<%=request.getContextPath()%>/removeTeacher.jjdev?teacherNo=<%=teacher.getTeacherNo()%>">삭제</a></td><!-- 티쳐의 넘버가 필요하다. -->
-						<td><a href="<%=request.getContextPath()%>/getTeacherAddrList.jjdev?teacherNo=<%=teacher.getTeacherNo()%>">주소리스트</a></td><!-- 티쳐의 넘버가 필요하다. -->
-						
+						<td>${teacher.teacherNo}</td>
+						<td>${teacher.teacherId}</td>
+						<td>${teacher.teacherPw}</td>
+						<td><a href="${pageContext.request.contextPath}/modifyTeacher.jjdev?teacherNo=${teacher.teacherNo}">수정</a></td><!-- 티쳐의 넘버가 필요하다. -->
+						<td><a href="${pageContext.request.contextPath}/removeTeacher.jjdev?teacherNo=${teacher.teacherNo}">삭제</a></td><!-- 티쳐의 넘버가 필요하다. -->
+						<td><a href="${pageContext.request.contextPath}/getTeacherAddrList.jjdev?teacherNo=${teacher.teacherNo}">주소리스트</a></td><!-- 티쳐의 넘버가 필요하다. -->
 					</tr>
-			<%
-				}
-			%>
+				</c:forEach>
 			</tbody>
 		</table>
 	</body>
