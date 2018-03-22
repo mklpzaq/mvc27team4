@@ -27,12 +27,14 @@ public class TeacherAddrDao {
 		try {
 			connection = DriverDB.driverConnection();
 			int teacherAddrNo = 0;
-			for(String teacherAddrNoTemp : teacherAddrNoArr) {
-				preparedStatement = connection.prepareStatement("DELETE FROM teacher_addr WHERE teacher_addr_no = ?");
-				System.out.println("teacherAddrNoTemp : " + teacherAddrNoTemp);
-				teacherAddrNo = Integer.parseInt(teacherAddrNoTemp);
-				preparedStatement.setInt(1, teacherAddrNo);
-				result = preparedStatement.executeUpdate();
+			if(teacherAddrNoArr != null) {
+				for(String teacherAddrNoTemp : teacherAddrNoArr) {
+					preparedStatement = connection.prepareStatement("DELETE FROM teacher_addr WHERE teacher_addr_no = ?");
+					System.out.println("teacherAddrNoTemp : " + teacherAddrNoTemp);
+					teacherAddrNo = Integer.parseInt(teacherAddrNoTemp);
+					preparedStatement.setInt(1, teacherAddrNo);
+					result = preparedStatement.executeUpdate();
+				}
 			}
 		}catch(ClassNotFoundException exception) {
 			exception.printStackTrace();
@@ -66,9 +68,6 @@ public class TeacherAddrDao {
 		}
 		return result;
 	} 
-	
-	
-	
 	/*
 	 * selectTeacherAddr() 매서드는,
 	 * Teacher객체의 teacherNo를 매개변수로 받아서 
@@ -200,7 +199,6 @@ public class TeacherAddrDao {
 		}
 		return result;
 	}
-	
 	/*
 	 * insertTeacherAddr() 메서드는 address를 추가해주는 메서드이다.
 	 * address가 어떤 객체의 address인지를 식별하기 위해서는 teacher_addr테이블의 FK키인 teacher_no값이 필요하다.
