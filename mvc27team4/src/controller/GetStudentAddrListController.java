@@ -20,14 +20,14 @@ public class GetStudentAddrListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Get방식으로 GetStudentAddrListController.java로 넘어왔음.");
 		StudentAddrDao studentAddrDao = new StudentAddrDao();
-		//-------------------------------------아래부터 다시보기.-------------------------------------------------------
-		String studentNo = request.getParameter("studentNo");
+		String studentNoTemp = request.getParameter("studentNo");
+		System.out.println("studentNoTemp : " + studentNoTemp + " ======================");
+		int studentNo = Integer.parseInt(studentNoTemp);
 		System.out.println(studentNo+"<<studentNo GetStudentAddrListController.java1");
-		ArrayList<StudentAddr> list = studentAddrDao.selectStudentAddr(Integer.parseInt(studentNo));
-		request.setAttribute("studentNo", studentNo);	
+		ArrayList<StudentAddr> list = studentAddrDao.selectStudentAddr(studentNo);
+		request.setAttribute("studentNo", studentNo);
 		request.setAttribute("studentAddr", list);
-		System.out.println(studentNo+"<<studentNo GetStudentAddrListController.java2");
-		System.out.println(list+"<<list GetStudentAddrListController.java");
+		System.out.println(list+"<<list GetStudentAddrListController.java2");
 		request.getRequestDispatcher("/WEB-INF/views/student/getStudentAddrList.jsp").forward(request, response);
 	}
 

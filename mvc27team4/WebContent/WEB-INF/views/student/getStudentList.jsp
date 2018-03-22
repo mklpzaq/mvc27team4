@@ -32,11 +32,6 @@
 				</tr>
 			</c:forEach>
 			
-			
-			
-			
-			
-			
 			<%-- <tr>
 			<%
 				ArrayList<Student> list = (ArrayList<Student>)request.getAttribute("list");

@@ -44,7 +44,7 @@ public class StudentAddrDao {
 	}
 	
 	public int insertStudentAddr(StudentAddr studentAddr) {
-		studentAddr = new StudentAddr();
+		//studentAddr = new StudentAddr();
 		Connection connection = null;
 		PreparedStatement statement = null;
 		int result = 0;
@@ -54,6 +54,7 @@ public class StudentAddrDao {
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, studentAddr.getStudentNo());
 			statement.setString(2, studentAddr.getAddress());
+			result = statement.executeUpdate();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

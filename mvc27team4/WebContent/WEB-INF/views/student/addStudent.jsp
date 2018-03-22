@@ -40,6 +40,7 @@
 			<div class="panel panel-default">
 				<div class="panel-body form-horizontal">
 				
+					<!-- addStudent.jjdev로 입력받은 값을 post방식으로 전송. -->
 					<form action="${pageContext.request.contextPath}/addStudent.jjdev" id="insertStudentForm" method="post">
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="studentId">student_id</label>

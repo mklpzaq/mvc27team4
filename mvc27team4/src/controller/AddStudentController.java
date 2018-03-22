@@ -15,16 +15,19 @@ import model.StudentDao;
 @WebServlet("/addStudent.jjdev")
 public class AddStudentController extends HttpServlet {
 	private StudentDao studentDao;
+
+	//addStudent.jsp 화면을 보여주기 위한 요청.
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("WEB-INF/views/student/addStudent.jsp").forward(request, response);
 	}
 
+	//addStudent.jsp에서 값들을 전달받아 insert메서드 작업을 실행함.
+	//getStudentList로 sendRedirect함.
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String studentId = request.getParameter("studentId");
 		String studentPw = request.getParameter("studentPw");
 		System.out.println(studentId);
 		System.out.println(studentPw);
-		
 		
 		Student student = new Student();
 		student.setStudentId(studentId);
