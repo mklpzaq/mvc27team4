@@ -15,8 +15,11 @@
 
 		<h3>주소추가</h3>
 		<form id="employeeAddrForm" action="${pageContext.request.contextPath}/addEmployeeAddr.jjdev" method="post">			
-			<input type="text" name = "address">
-			<button id="employeeAddrButton" type="sunmit">주소추가</button>					
+			<label>employee_no</label>
+				<input id = "inputEmployeeNo" type = "text" name = "employeeNo" value = "${employeeNo}" readonly>
+			<label>address</label>
+				<input type="text" name = "address" placeholder = "주소">
+				<input id = "employeeAddrButton" type = "submit" value = "입력완료">					
 		</form>
 </body>
-</html>
+</html> 

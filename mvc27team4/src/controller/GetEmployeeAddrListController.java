@@ -29,7 +29,8 @@ public class GetEmployeeAddrListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("GetEmployeeAddrListController / doGet");
-		String temp = request.getParameter("send_Nom");
+		request.setCharacterEncoding("UTF-8");
+		String temp = request.getParameter("employeeNo");
 		int employeeNo = Integer.parseInt(temp);
 		System.out.println("employeeNo : " + employeeNo);
 		

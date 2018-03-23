@@ -26,10 +26,29 @@ import model.EmployeeDao;
 @WebServlet("/getEmployeeList.jjdev")
 public class GetEmployeeListController extends HttpServlet {   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EmployeeDao edao = new EmployeeDao();
-		request.getParameter("send_Nom");
-		ArrayList<Employee> list = edao.selectEmployee();
-		request.setAttribute("selectemployee", list);		
+		System.out.println("GetEmployeeListController doGet 실행");
+		request.setCharacterEncoding("UTF-8");
+		
+		int pagePerRow = 10;		
+		int currentPage = 1;
+		if(request.getParameter("currentPage") != null) {
+			currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		}
+		
+		int startRow = (currentPage-1)*pagePerRow;	
+		
+		EmployeeDao edao = new EmployeeDao();		
+		ArrayList<Employee> list = edao.selectEmployee(startRow, pagePerRow);
+		request.setAttribute("selectEmployee", list);
+		
+		int totalRowCount = edao.employeeRowCount();
+		int lastPage = totalRowCount / pagePerRow;
+		if(totalRowCount % pagePerRow !=0) {
+			lastPage++;
+		}	
+		
+		request.setAttribute("currentPage", currentPage);
+		request.setAttribute("lastPage", lastPage);
 		
 		request.getRequestDispatcher("/WEB-INF/views/employee/getEmployeelist.jsp").forward(request, response);
 		

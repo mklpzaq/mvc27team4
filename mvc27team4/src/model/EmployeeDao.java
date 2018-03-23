@@ -15,6 +15,68 @@ public class EmployeeDao {
 	ResultSet result = null;
 	int intReturn = 0;
 	
+	public int employeeRowCount() {
+		int count = 0;
+		
+		try {
+			conn = DriverDB.driverConnection();
+			String sql = "SELECT count(*) AS totalCount FROM employee";
+			pstmt = conn.prepareStatement(sql);
+			result =pstmt.executeQuery();
+			
+			if(result.next()) {
+				count = result.getInt(1);
+			}
+		
+		} catch (ClassNotFoundException e) {			
+			e.printStackTrace();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
+	
+	/*
+	 * 매개변수 int startRow -> select결과물의 시작행
+	 * 매개변수 int pagePerRow -> select결과물의 갯수
+	 * return : Employee List
+	 */
+	public ArrayList<Employee> selectEmployee(int startRow, int pagePerRow){
+		System.out.println(startRow +"=========");
+		System.out.println(pagePerRow +"=========");
+		ArrayList<Employee> list = new  ArrayList<Employee>();	
+		try {
+			conn = DriverDB.driverConnection();
+			String sql = "SELECT * from employee LIMIT ?, ?";			
+			pstmt = conn.prepareStatement(sql); 
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, pagePerRow);
+			result = pstmt.executeQuery();
+	
+				while (result.next()) {
+					Employee employee = new Employee();
+					int employeeNom = result.getInt("employee_no");
+					String employeeId = result.getString("employee_id");
+					String employeePw = result.getString("employee_pw");
+					
+					employee.setEmployeeNom(employeeNom);
+					employee.setEmployeeId(employeeId);
+					employee.setEmployeePw(employeePw);
+					list.add(employee);
+				}		
+		
+		} catch (ClassNotFoundException e) {			
+			e.printStackTrace();
+		} catch (SQLException e) {			
+			e.printStackTrace();
+		} finally {			
+			if (result != null) try {result.close();} catch (SQLException ex) {}
+			if (pstmt != null) try {pstmt.close();} catch (SQLException ex) {}
+			if (conn != null) try {conn.close();} catch (SQLException ex) {}
+		}		
+		return list;
+	}
 	
 	public int deleteEmployee(int employeeNom) {
 		Connection connection = null;

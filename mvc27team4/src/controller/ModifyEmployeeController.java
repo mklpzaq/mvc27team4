@@ -47,7 +47,7 @@ public class ModifyEmployeeController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("===ModifyEmployeeController / doPost ===");
-		
+		request.setCharacterEncoding("UTF-8");
 		String employeeno = request.getParameter("EmployeeNo");
 		int EmployeeNo = Integer.parseInt(employeeno);
 		String employeeid = request.getParameter("EmployeeId");

@@ -22,6 +22,7 @@ public class AddEmployeeAddrController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("=== AddEmployeeAddrController / doGet ===");
+		request.setCharacterEncoding("UTF-8");
 		String temp = request.getParameter("employeeNo");
 		System.out.println("=========" + temp);
 		int employeeNo = Integer.parseInt(temp);
@@ -36,6 +37,7 @@ public class AddEmployeeAddrController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 System.out.println("==AddEmployeeAddrController / doPost==");
+		 request.setCharacterEncoding("UTF-8");
 		 String temp = request.getParameter("employeeNo");
 		 int employeeNo = Integer.parseInt(temp);		
 		 String address = request.getParameter("address");

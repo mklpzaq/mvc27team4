@@ -18,9 +18,8 @@
 		또한 수정, 삭제 , 주소추가를 하기위해 get방식으로 직원에 해당하는 no값을 넘깁니다.		 
 	 -->
 			
-	${list}
-	
-	<c:forEach var="employee" items="${selectemployee}" >
+		
+	 <c:forEach var="employee" items="${selectEmployee}" >
 		<div class="bs-example" data-example-id="simple-table">
 		 <table class="table">
 		      <caption>Optional table caption.</caption>
@@ -34,21 +33,34 @@
 		          <th>ADD EMPLOYEE_ADDR</th> <!-- employeeAddrDao.insertGuestAddr() -->
 		        </tr>
 		      </thead>
-		      <tbody>
+		      <tbody>		
 		        <tr>
 		          <th scope="row">${employee.employeeNom}</th>		        
 		          <td>${employee.employeeId}</td>
-		          <td><a href="${pageContext.request.contextPath}/ModifyEmployee.jjdev?send_Nom=${employee.employeeNom}">수정</a></td>
-		          <td><a href="${pageContext.request.contextPath}/removeEmployee.jjdev?send_Nom=${employee.employeeNom}">삭제</a></td>
-		          <td><a href="${pageContext.request.contextPath}/getEmployeeAddrList.jjdev?send_Nom=${employee.employeeNom}">주소추가</a></td>		         
+		          <td><a href="${pageContext.request.contextPath}/ModifyEmployee.jjdev?employeeNo=${employee.employeeNom}">수정</a></td>
+		          <td><a href="${pageContext.request.contextPath}/removeEmployee.jjdev?employeeNo=${employee.employeeNom}">삭제</a></td>
+		          <td><a href="${pageContext.request.contextPath}/getEmployeeAddrList.jjdev?employeeNo=${employee.employeeNom}">주소추가</a></td>		         
 		        </tr>		       
 	      </tbody>
-	    </table>
+	    </table>	  	
 	  </div>	
 	</c:forEach>
-
-		
-	
-	
+	<nav>
+		  <ul class="pagination">
+		    <li>
+		      	<a href="${pageContext.request.contextPath}/getEmployeeList.jjdev?currentPage=1" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		   	<c:forEach var="pageNum" begin="1" end="${lastPage}" step="1">
+			    <li><a href="${pageContext.request.contextPath}/getEmployeeList.jjdev?currentPage=${pageNum}">${pageNum}</a></li> 
+			</c:forEach>	    
+		    <li>
+		      	<a href="${pageContext.request.contextPath}/getEmployeeList.jjdev?currentPage=${lastPage}" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+	</nav>	
 </body>
 </html>

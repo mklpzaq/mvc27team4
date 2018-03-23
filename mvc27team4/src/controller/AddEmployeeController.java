@@ -21,8 +21,8 @@ public class AddEmployeeController extends HttpServlet {
 	 *	메서드가 실행되는데에 비해 doGet 메서드는 ... get방식으로 주소를 넘겨서 불러오기 때문이다. 	
 	 */	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//request.getRequestDispatcher("/WEB-INF/views/employee/addEmployee.jsp").forward(request, response);
-		request.getRequestDispatcher("/WEB-INF/views/employee/getEmployeeAddrList.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/employee/addEmployee.jsp").forward(request, response);
+		//request.getRequestDispatcher("/WEB-INF/views/employee/getEmployeeAddrList.jsp").forward(request, response);
 		//request.getRequestDispatcher("/WEB-INF/views/employee/getEmployeeAddrDeletForm.jsp").forward(request, response);
 	}
 	
@@ -40,8 +40,7 @@ public class AddEmployeeController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String employeeId = request.getParameter("employeeId");
 		String employeePw = request.getParameter("employeePw");
-		String employeePwCheck = request.getParameter("employeePwCheck");
-		
+			
 		Employee employee = new Employee();	
 		employee.setEmployeeId(employeeId);
 		employee.setEmployeePw(employeePw);
