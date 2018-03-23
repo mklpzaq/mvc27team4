@@ -9,6 +9,43 @@ import java.util.ArrayList;
 
 public class StudentAddrDao {
 	
+	public int deleteStudentAddr(String[] deleteAddrCheck) {
+		System.out.println("");
+		System.out.println("deleteStudentAddr StudentAddrDao.java");
+		Connection connection = null;
+		PreparedStatement statement = null;
+		int result = 0;
+		try {
+			connection = DriverDB.driverConnection();
+			String sql = "DELETE FROM student_addr WHERE student_addr_no=?";
+			statement = connection.prepareStatement(sql);
+			if(deleteAddrCheck!=null) {
+				for(String addrTemp : deleteAddrCheck) {
+					int addr = Integer.parseInt(addrTemp);
+					System.out.println("addr : " + addr);
+					statement.setInt(1, addr);
+					result = statement.executeUpdate();
+				}
+			}else {
+				System.out.println("deleteAddrCheck가 없어서 삭제할 수 없음.");
+				result=2;
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				statement.close();
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+	
 	public ArrayList<StudentAddr> selectStudentAddr(int studentNo) {
 		StudentAddr studentAddr = null;
 		Connection connection = null;
@@ -44,7 +81,6 @@ public class StudentAddrDao {
 	}
 	
 	public int insertStudentAddr(StudentAddr studentAddr) {
-		//studentAddr = new StudentAddr();
 		Connection connection = null;
 		PreparedStatement statement = null;
 		int result = 0;

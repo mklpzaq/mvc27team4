@@ -24,6 +24,7 @@ public class AddStudentController extends HttpServlet {
 	//addStudent.jsp에서 값들을 전달받아 insert메서드 작업을 실행함.
 	//getStudentList로 sendRedirect함.
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("AddStudentController.java / doPost메소드 시작");
 		String studentId = request.getParameter("studentId");
 		String studentPw = request.getParameter("studentPw");
 		System.out.println(studentId);
@@ -35,7 +36,8 @@ public class AddStudentController extends HttpServlet {
 		this.studentDao = new StudentDao();
 		
 		studentDao.insertStudent(student);
-		
+		System.out.println("AddStudentController.java / doPost메소드 끝");
 		response.sendRedirect(request.getContextPath()+"/getStudentList.jjdev");
+		
 	}
 }

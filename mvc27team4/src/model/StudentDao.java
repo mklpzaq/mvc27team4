@@ -107,12 +107,47 @@ public class StudentDao {
 		return result;
 	}
 	
-	/* 전체학생을 조회해서 리스트화면에 보여주기 위해 다음의 메소드를 선언한다.
-	 * 조회 쿼리를 실행한 값을 ResultSet에 담고, 이것을 다시 Student객체에 담은 후 ArrayList<Student>에 담는다.
-	 * ArrayList<Student>의 객체참조변수인 list를 리턴한다.
-	 * ->리스트화면에서 이 메소드를 실행하면 전체학생 조회값이 담긴 리턴값이 반환되어 화면에 보여진다.
+	/*
+	 * 
 	 */
-	public ArrayList<Student> selectStudent(){
+	public int studentRowCount() {
+		int count=0;
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			connection = DriverDB.driverConnection();
+			
+			String sql = "SELECT count(*) AS count FROM student";
+			statement = connection.prepareStatement(sql);
+			resultSet = statement.executeQuery();
+			if(resultSet.next()) {
+				count = resultSet.getInt("count");
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				resultSet.close();
+				statement.close();
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return count;
+	}
+	
+	/*
+	 * student 조회하기 위한 메소드.
+	 * 매개변수 int startRow: select결과물의 시작행
+	 * 매개변수 int pagePerRow: select결과물의 개수
+	 * return: student list
+	 */
+	public ArrayList<Student> selectStudent(int startRow, int pagePerRow){
 		Connection connection = null;
 		PreparedStatement statement = null;
 		Student student = null;
@@ -120,8 +155,10 @@ public class StudentDao {
 		ArrayList<Student> list = new ArrayList<Student>();
 		try {
 			connection = DriverDB.driverConnection();
-			String sql = "SELECT * FROM student";
+			String sql = "SELECT * FROM student LIMIT ?, ?";
 			statement = connection.prepareStatement(sql);
+			statement.setInt(1, startRow);
+			statement.setInt(2, pagePerRow);
 			resultSet = statement.executeQuery();
 			while(resultSet.next()) {
 				student = new Student();
