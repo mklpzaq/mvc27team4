@@ -75,7 +75,11 @@ public class EmployeeAddrDao {
 		}		
 		return list;
 	}	
-	
+	/*
+	 * 테이블안에 입력된 값이 몇개가 되는지 알아보는 메서드이다.
+	 * 변수로는 EmployeeAddr의 필드값을 사용한다.
+	 * 리턴 result엔 employee_addr 테이블안의 값 갯수가 리턴된다.
+	 */
 	private int countAddr(EmployeeAddr employeeAddr) {
 		System.out.println("countAddr() EmployeeAddr.java ");
 		System.out.println(employeeAddr.toString());
@@ -101,7 +105,11 @@ public class EmployeeAddrDao {
 		}
 		return result;
 	}
-	
+	/*
+	 * AddEmployeeAddrController 에 dopost()메소드에서 설정된(넘버,주소)값이 변수에 들어간다.
+	 * EmployeeAddr에 값이 얼마나 들어있는지 수를 새서 5보다 작을시 화면에 출력이 되고 
+	 * 5보다 크면 화면에 출력되지 않는다. 
+	 */
 	public int insertEmployeeAddr(EmployeeAddr employeeAddr) {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -120,10 +128,8 @@ public class EmployeeAddrDao {
 			result = 2;			
 		 }
 			}catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
+			} catch (SQLException e) {				
 				e.printStackTrace();
 			}
 			

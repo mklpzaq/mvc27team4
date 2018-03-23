@@ -15,7 +15,7 @@ public class RemoveEmployeeController extends HttpServlet {
 	   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("RemoveEmployeeController 실행");
-		String temp = request.getParameter("send_Nom");
+		String temp = request.getParameter("employeeNo");
 		int send_num = Integer.parseInt(temp);
 		
 		EmployeeDao edao = new EmployeeDao();
