@@ -179,13 +179,85 @@ public class TeacherDao {
 		return teacher;
 	}
 	
+	
+	
+	
+	/*
+	 * teacherRowCount() 매서드는 teacher테이블의 모든 행의 개수를 구하는 매서드이다.
+	 * 구하여진 모든 행의 개수가 리턴된다.
+	 * */
+	public int teacherRowCount() {
+		int count = 0;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		/*
+		 * SELECT count(*) FROM teacher
+		 * 전체행의 개수 구함
+		 * */
+		try {
+			connection = DriverDB.driverConnection();
+			preparedStatement = connection.prepareStatement("SELECT COUNT(*) AS rowCount FROM teacher");
+			resultSet = preparedStatement.executeQuery();
+			if(resultSet.next()) {
+				count = resultSet.getInt("rowCount");
+			}
+		}catch(ClassNotFoundException exception) {
+			exception.printStackTrace();
+			System.out.println(exception.getMessage());
+			System.out.println("TeacherDao.selectTeacher() / ClassNotFoundException");
+		}catch(SQLException exception) {
+			exception.printStackTrace();
+			System.out.println(exception.getMessage());
+			System.out.println("TeacherDao.selectTeacher() / SQLException");
+		}finally {
+			if(resultSet != null) {
+				try {
+					resultSet.close();
+					resultSet = null;
+				}catch(SQLException exception) {
+					exception.printStackTrace();
+					System.out.println(exception.getMessage());
+					System.out.println("TeacherDao.selectTeacher() / resultSet.close() / SQLException");
+				}
+			}
+			if(preparedStatement != null) {
+				try {
+					preparedStatement.close();
+					preparedStatement = null;
+				}catch(SQLException exception) {
+					exception.printStackTrace();
+					System.out.println(exception.getMessage());
+					System.out.println("TeacherDao.selectTeacher() / preparedStatement.close() / SQLException");
+				}
+			}
+			if(connection != null) {
+				try {
+					connection.close();
+					connection = null;
+				}catch(SQLException exception) {
+					exception.printStackTrace();
+					System.out.println(exception.getMessage());
+					System.out.println("TeacherDao.selectTeacher() / connection.close() / SQLException");
+				}
+			}
+		}
+		
+		
+		
+		return count;
+	}
+	
+	
+	
+	
 	/*
 	 * selectTeacher() 매서드는 DB에 접근하여,
 	 * teacher테이블의 모든 속성(teacher_no, teacher_id, teacher_pw)에 해당되는
 	 * 값을 얻어 Teacher객체의 맴버변수(teacherNo, teacherId, teacherPw)에 각각 세팅하고
 	 * 세팅된 Teacher객체들을 ArrayList<Teacher> list에 담아 리턴시키는 메서드이다.
 	 */
-	public ArrayList<Teacher> selectTeacher(){
+	public ArrayList<Teacher> selectTeacher(int startRow, int pagePerRow){
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -193,7 +265,11 @@ public class TeacherDao {
 		Teacher teacher = null;
 		try {
 			connection = DriverDB.driverConnection();
-			preparedStatement = connection.prepareStatement("SELECT * FROM teacher");
+			preparedStatement = connection.prepareStatement("SELECT * FROM teacher LIMIT ?, ?");
+			//==================
+			preparedStatement.setInt(1, startRow);
+			preparedStatement.setInt(2, pagePerRow);
+			//===================
 			resultSet = preparedStatement.executeQuery();
 			list = new ArrayList<Teacher>();
 			while(resultSet.next()) {

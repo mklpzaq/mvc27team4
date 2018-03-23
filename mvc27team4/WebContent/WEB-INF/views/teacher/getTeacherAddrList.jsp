@@ -21,21 +21,7 @@
 				}else {
 					$("input[type=checkbox]").prop("checked",false);
 				}
-			})
-			
-			
-			
-			
-			/*  if( $("#teacherId").val().length < 2 ){
-			$("#helper").text("2자 이상 입력해주세요.");
-		}else if( $("#teacherPw").val() === "" ){
-			$("#helper").text("비밀번호를 입력하여 주십시오.");
-		}else if( $("#teacherPwCheck").val() !== $("#teacherPw").val() ){
-			$("#helper").text("확인 비밀번호를 정확히 입력해주세요.");
-		}else{
-			$("#helper").text("");
-			$("#insertTeacherForm").submit();
-		} */
+			});
 		});
 	</script>
 	</head>
