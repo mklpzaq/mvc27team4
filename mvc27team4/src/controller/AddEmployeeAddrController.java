@@ -36,7 +36,7 @@ public class AddEmployeeAddrController extends HttpServlet {
 	 * 주소입력창(addEmployeeAddrForm.jsp)에서 값을 받아온다.
 	 * 직원넘버를 확인 하고 넘버값이 같은 곳에 주소를 추가한다.
 	 * insertEmployeeAddr(employeeAddr) 메서드를 불러올때 인수를 employeeAddr(넘버와 주소가 셋팅된)값을 인수로 사용한다.
-	 * 
+	 * result(insertEmployeeAddr(): 여기서 리턴된값)이 2 이면 입력갯수 초과 창이 뜨게 한다. 
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 System.out.println("==AddEmployeeAddrController / doPost==");

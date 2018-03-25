@@ -8,7 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class EmployeeAddrDao {
-	
+	/*
+	 * 변수는 문자형배열로 설정한다. 
+	 * 변수엔 RemoveEmployeeAddrController에서 값을 받아온다. 
+	 * 리턴값은  employeeAddrNo에 한 행이 지워진 값을 리턴한다. 
+	 */
 	public int deleteEmployeeAddr(String[] employeeAddrNoArr) {
 		System.out.println("deleteEmployeeAddr() EmployeeAddrDao.java");
 		Connection connection = null;
@@ -78,7 +82,7 @@ public class EmployeeAddrDao {
 	/*
 	 * 테이블안에 입력된 값이 몇개가 되는지 알아보는 메서드이다.
 	 * 변수로는 EmployeeAddr의 필드값을 사용한다.
-	 * 리턴 result엔 employee_addr 테이블안의 값 갯수가 리턴된다.
+	 * 리턴 result엔 employee_addr 테이블안의 값, 갯수가 리턴된다.
 	 */
 	private int countAddr(EmployeeAddr employeeAddr) {
 		System.out.println("countAddr() EmployeeAddr.java ");
@@ -108,7 +112,8 @@ public class EmployeeAddrDao {
 	/*
 	 * AddEmployeeAddrController 에 dopost()메소드에서 설정된(넘버,주소)값이 변수에 들어간다.
 	 * EmployeeAddr에 값이 얼마나 들어있는지 수를 새서 5보다 작을시 화면에 출력이 되고 
-	 * 5보다 크면 화면에 출력되지 않는다. 
+	 * 5보다 크면 화면에 출력되지 않는다.
+	 * 그렇지 않다면 result(리턴될값) 2로 초기화한다.	 *  
 	 */
 	public int insertEmployeeAddr(EmployeeAddr employeeAddr) {
 		Connection connection = null;
