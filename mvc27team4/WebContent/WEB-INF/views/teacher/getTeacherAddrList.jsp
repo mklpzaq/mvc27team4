@@ -30,7 +30,6 @@
 			String temp = request.getParameter("teacherNo");
 			int teacherNo = Integer.parseInt(temp);
 		%> --%>
-		getTeacherAdderList.jsp
 		<div class = "row">
 			<div class = "col-sm-2"></div>
 			<div class = "col-sm-8">

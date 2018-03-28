@@ -141,9 +141,9 @@ public class TeacherAddrDao {
 	 * 칼럼갯수를 리턴한다.
 	 * insertTeacherAddr() 메서드에서 사용한다.
 	 *  */
-	private int countAddr(TeacherAddr teacherAddr) {
+	public int countAddr(int teacherNo) {
 		System.out.println("countAddr() TeacherAddrDao.java ");
-		System.out.println(teacherAddr.toString());
+		System.out.println("teacherNo : " + teacherNo);
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -151,7 +151,7 @@ public class TeacherAddrDao {
 		try {
 			connection = DriverDB.driverConnection();
 			preparedStatement = connection.prepareStatement("SELECT COUNT(teacher_addr_no) AS addrCount FROM teacher_addr WHERE teacher_no = ?");
-			preparedStatement.setInt(1, teacherAddr.getTeacherNo());
+			preparedStatement.setInt(1, teacherNo);
 			resultSet = preparedStatement.executeQuery();
 			if(resultSet.next()) {
 				System.out.println("addrCount : " + resultSet.getInt("addrCount"));
@@ -223,7 +223,7 @@ public class TeacherAddrDao {
 		PreparedStatement preparedStatement = null;
 		int result = 0;
 		/* DB안에 있는 address가 몇개인지 구하는 매서드 : countAddr(), address 개수를 리턴한다.*/
-		int count = this.countAddr(teacherAddr);
+		int count = this.countAddr(teacherAddr.getTeacherNo());
 		try {
 			/* count가 5미만일 경우만 INSERT 구문을 실행한다. */
 			if(count < 5) {
