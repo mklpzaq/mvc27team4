@@ -84,9 +84,9 @@ public class EmployeeAddrDao {
 	 * 변수로는 EmployeeAddr의 필드값을 사용한다.
 	 * 리턴 result엔 employee_addr 테이블안의 값, 갯수가 리턴된다.
 	 */
-	private int countAddr(EmployeeAddr employeeAddr) {
+	public int countAddr(int employeeNo) {
 		System.out.println("countAddr() EmployeeAddr.java ");
-		System.out.println(employeeAddr.toString());
+		System.out.println(employeeNo);
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -96,7 +96,7 @@ public class EmployeeAddrDao {
 			connection = DriverDB.driverConnection();
 			String sql = "SELECT COUNT(employee_addr_no) AS addrCount FROM employee_addr WHERE employee_no = ?";
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, employeeAddr.getEmployeeNo());
+			preparedStatement.setInt(1, employeeNo);
 			resultSet = preparedStatement.executeQuery();
 			if(resultSet.next()) {
 				System.out.println("addrCount : " + resultSet.getInt("addrCount"));
@@ -120,7 +120,7 @@ public class EmployeeAddrDao {
 		PreparedStatement preparedStatement = null;
 		int result = 0;
 		
-		int count = this.countAddr(employeeAddr);
+		int count = this.countAddr(employeeAddr.getEmployeeNo());
 		try {
 		if(count < 5) {			
 			connection = DriverDB.driverConnection();
